@@ -52,7 +52,7 @@ CUDNN:
 DATASET:
   DATASET: 'imagenet'
   DATA_FORMAT: 'jpg'
-  ROOT: '/content/drive/MyDrive/CS412/imagenet/'
+  ROOT: '/root/data/ltnghia/projects/visual_communication/htluc/imagenet/'
   TEST_SET: 'val'
   TRAIN_SET: 'train'
 TEST:
@@ -61,7 +61,7 @@ TEST:
   MODEL_FILE: ''
   INTERPOLATION: 3
 TRAIN:
-  BATCH_SIZE_PER_GPU: 128
+  BATCH_SIZE_PER_GPU: 256
   LR: 0.00025
   IMAGE_SIZE: [64, 64]
   BEGIN_EPOCH: 0
