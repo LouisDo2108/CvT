@@ -44,8 +44,8 @@ def parse_args():
                         type=str)
 
     # distributed training
-    parser.add_argument("--local_rank", type=int, default=0)
-    parser.add_argument("--port", type=int, default=9000)
+    # parser.add_argument("--local_rank", type=int, default=0)
+    # parser.add_argument("--port", type=int, default=9000)
 
     parser.add_argument('opts',
                         help="Modify config options using the command-line",
@@ -60,8 +60,10 @@ def parse_args():
 def main():
     args = parse_args()
 
-    init_distributed(args)
+    # init_distributed(args)
     setup_cudnn(config)
+    args.distributed = False
+    args.num_gpus = 1
 
     update_config(config, args)
     final_output_dir = create_logger(config, args.cfg, 'train')
