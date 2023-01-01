@@ -11,11 +11,12 @@ We modified some code in the original CvT repository:
 
 ## Results (Trained 200 epochs using a single Nvidia V100 GPU)
 | Dataset+Method              | Accuracy@1 | Accuracy@5 |
+|-----------------------------|------------|------------|
 | Tiny-ImageNet - SoftCE      | 53.290     | 77.740     |
 | Tiny-ImageNet_ESR - SoftCE  | 66.230     | 86.250     |
 | Tiny-ImageNet - Focal       | 53.820     | 77.390     | 
 | Tiny-ImageNet_ESR - Focal   | 66.330     | 83.550     | 
-------------------------------------------------------------
+|-----------------------------|------------|------------|
 | CIFAR100 - SoftCE           | 55.820     | 83.110     |
 | CIFAR100_ESR - SoftCE       | 70.890     | 91.650     |
 | CIFAR100 - Focal            | 58.190     | 84.340     | 
