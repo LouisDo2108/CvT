@@ -1,3 +1,26 @@
+# LouisDo2108 modification
+
+## TLDR
+This repository was our implementation for the HCMUS-APCS-CS412: Computer Vision course's project. We investigate CvT on two small datasets: CIFAR100 and Tiny-ImageNet. The data is available [here](https://drive.google.com/drive/folders/1T-LFf7GG4OR6jcrV7TZx37ltQwE_M4UC?usp=sharing), including the super-resolution versins using Real-ESRGAN.
+
+## Modification
+We modified some code in the original CvT repository:
+1. To use focal loss, we modified CvT/lib/core/loss.py and CvT/lib/core/function.py
+2. We have a custom test python code in CvT/tools/custom_test.py to output the predicition with image paths. To run this code successfully, we modified CvT/lib/dataset/build.py to make the dataloader also outputs image paths. Please use the default code for training.
+3. Folder CvT/experiments/ contains our configuration YAML files for training. The result can be found in folder CvT/OUTPUT/imagenet/
+
+## Results (Trained 200 epochs using a single Nvidia V100 GPU)
+| Dataset+Method              | Accuracy@1 | Accuracy@5 |
+| Tiny-ImageNet - SoftCE      | 53.290     | 77.740     |
+| Tiny-ImageNet_ESR - SoftCE  | 66.230     | 86.250     |
+| Tiny-ImageNet - Focal       | 53.820     | 77.390     | 
+| Tiny-ImageNet_ESR - Focal   | 66.330     | 83.550     | 
+------------------------------------------------------------
+| CIFAR100 - SoftCE           | 55.820     | 83.110     |
+| CIFAR100_ESR - SoftCE       | 70.890     | 91.650     |
+| CIFAR100 - Focal            | 58.190     | 84.340     | 
+| CIFAR100_ESR - Focal        | 70.620     | 91.470     | 
+
 # Introduction
 This is an official implementation of [CvT: Introducing Convolutions to Vision Transformers](https://arxiv.org/abs/2103.15808). We present a new architecture, named Convolutional vision Transformers (CvT), that improves Vision Transformers (ViT) in performance and efficienty by introducing convolutions into ViT to yield the best of both designs. This is accomplished through two primary modifications: a hierarchy of Transformers containing a new convolutional token embedding, and a convolutional Transformer block leveraging a convolutional projection. These changes introduce desirable properties of convolutional neural networks (CNNs) to the ViT architecture (e.g. shift, scale, and distortion invariance) while maintaining the merits of Transformers (e.g. dynamic attention, global context, and better generalization). We validate CvT by conducting extensive experiments, showing that this approach achieves state-of-the-art performance over other Vision Transformers and ResNets on ImageNet-1k, with fewer parameters and lower FLOPs. In addition, performance gains are maintained when pretrained on larger dataset (e.g. ImageNet-22k) and fine-tuned to downstream tasks. Pre-trained on ImageNet-22k, our CvT-W24 obtains a top-1 accuracy of 87.7% on the ImageNet-1k val set. Finally, our results show that the positional encoding, a crucial component in existing Vision Transformers, can be safely removed in our model, simplifying the design for higher resolution vision tasks. 
 
