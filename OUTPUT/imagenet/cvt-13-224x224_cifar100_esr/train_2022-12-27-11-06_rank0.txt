@@ -1,0 +1,1626 @@
+2022-12-27 11:06:51,530:[P:9151]:Rank[0/1] => collecting env info (might take some time)
+2022-12-27 11:07:02,215:[P:9151]:Rank[0/1] 
+PyTorch version: 1.7.1
+Is debug build: False
+CUDA used to build PyTorch: 10.1
+ROCM used to build PyTorch: N/A
+
+OS: Ubuntu 18.04.6 LTS (x86_64)
+GCC version: (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0
+Clang version: Could not collect
+CMake version: Could not collect
+
+Python version: 3.8 (64-bit runtime)
+Is CUDA available: True
+CUDA runtime version: Could not collect
+GPU models and configuration: 
+GPU 0: Tesla V100-DGXS-32GB
+GPU 1: Tesla V100-DGXS-32GB
+GPU 2: Tesla V100-DGXS-32GB
+GPU 3: Tesla V100-DGXS-32GB
+
+Nvidia driver version: 418.87.01
+cuDNN version: Probably one of the following:
+/usr/lib/x86_64-linux-gnu/libcudnn.so.8.2.0
+/usr/lib/x86_64-linux-gnu/libcudnn_adv_infer.so.8.2.0
+/usr/lib/x86_64-linux-gnu/libcudnn_adv_train.so.8.2.0
+/usr/lib/x86_64-linux-gnu/libcudnn_cnn_infer.so.8.2.0
+/usr/lib/x86_64-linux-gnu/libcudnn_cnn_train.so.8.2.0
+/usr/lib/x86_64-linux-gnu/libcudnn_ops_infer.so.8.2.0
+/usr/lib/x86_64-linux-gnu/libcudnn_ops_train.so.8.2.0
+HIP runtime version: N/A
+MIOpen runtime version: N/A
+
+Versions of relevant libraries:
+[pip3] numpy==1.23.4
+[pip3] pytorch-metric-learning==1.6.3
+[pip3] torch==1.7.1
+[pip3] torchaudio==0.7.0a0+a853dff
+[pip3] torchmetrics==0.11.0
+[pip3] torchvision==0.8.2
+[conda] blas                      1.0                         mkl  
+[conda] cudatoolkit               10.1.243             h6bb024c_0  
+[conda] mkl                       2021.4.0           h06a4308_640  
+[conda] mkl-service               2.4.0            py38h7f8727e_0  
+[conda] mkl_fft                   1.3.1            py38hd3c417c_0  
+[conda] mkl_random                1.2.2            py38h51133e4_0  
+[conda] numpy                     1.21.0                   pypi_0    pypi
+[conda] numpy-base                1.23.4           py38h31eccc5_0  
+[conda] pytorch                   1.7.1           py3.8_cuda10.1.243_cudnn7.6.3_0    pytorch
+[conda] pytorch-metric-learning   1.6.3                    pypi_0    pypi
+[conda] torchaudio                0.7.2                      py38    pytorch
+[conda] torchmetrics              0.11.0                   pypi_0    pypi
+[conda] torchvision               0.8.2                py38_cu101    pytorch
+2022-12-27 11:07:02,216:[P:9151]:Rank[0/1] Namespace(cfg='/root/data/ltnghia/projects/visual_communication/htluc/CvT/experiments/imagenet/cvt/cvt-13-224x224_cifar100_esr.yaml', distributed=False, num_gpus=1, opts=[])
+2022-12-27 11:07:02,216:[P:9151]:Rank[0/1] AMP:
+  ENABLED: True
+  MEMORY_FORMAT: nchw
+AUG:
+  COLOR_JITTER: [0.4, 0.4, 0.4, 0.1, 0.0]
+  DROPBLOCK_BLOCK_SIZE: 7
+  DROPBLOCK_KEEP_PROB: 1.0
+  DROPBLOCK_LAYERS: [3, 4]
+  GAUSSIAN_BLUR: 0.0
+  GRAY_SCALE: 0.0
+  INTERPOLATION: 2
+  MIXCUT: 1.0
+  MIXCUT_AND_MIXUP: False
+  MIXCUT_MINMAX: []
+  MIXUP: 0.8
+  MIXUP_MODE: batch
+  MIXUP_PROB: 1.0
+  MIXUP_SWITCH_PROB: 0.5
+  RATIO: (0.75, 1.3333333333333333)
+  SCALE: (0.08, 1.0)
+  TIMM_AUG:
+    AUTO_AUGMENT: rand-m9-mstd0.5-inc1
+    COLOR_JITTER: 0.4
+    HFLIP: 0.5
+    INTERPOLATION: bicubic
+    RE_COUNT: 1
+    RE_MODE: pixel
+    RE_PROB: 0.25
+    RE_SPLIT: False
+    USE_LOADER: True
+    USE_TRANSFORM: False
+    VFLIP: 0.0
+BASE: ['']
+CUDNN:
+  BENCHMARK: True
+  DETERMINISTIC: False
+  ENABLED: True
+DATASET:
+  DATASET: imagenet
+  DATA_FORMAT: png
+  LABELMAP: 
+  ROOT: /root/data/ltnghia/projects/visual_communication/htluc/Real-ESRGAN/results/cifar100_esr/
+  SAMPLER: default
+  TARGET_SIZE: -1
+  TEST_SET: val
+  TEST_TSV_LIST: []
+  TRAIN_SET: train
+  TRAIN_TSV_LIST: []
+DATA_DIR: 
+DEBUG:
+  DEBUG: False
+DIST_BACKEND: nccl
+FINETUNE:
+  BASE_LR: 0.003
+  BATCH_SIZE: 512
+  EVAL_EVERY: 3000
+  FINETUNE: False
+  FROZEN_LAYERS: []
+  LR_SCHEDULER:
+    DECAY_TYPE: step
+  TRAIN_MODE: True
+  USE_TRAIN_AUG: False
+GPUS: (0,)
+INPUT:
+  MEAN: [0.485, 0.456, 0.406]
+  STD: [0.229, 0.224, 0.225]
+LOSS:
+  LABEL_SMOOTHING: 0.1
+  LOSS: softmax
+MODEL:
+  INIT_WEIGHTS: True
+  NAME: cls_cvt
+  NUM_CLASSES: 1000
+  PRETRAINED: 
+  PRETRAINED_LAYERS: ['*']
+  SPEC:
+    ATTN_DROP_RATE: [0.0, 0.0, 0.0]
+    CLS_TOKEN: [False, False, True]
+    DEPTH: [1, 2, 10]
+    DIM_EMBED: [64, 192, 384]
+    DROP_PATH_RATE: [0.0, 0.0, 0.1]
+    DROP_RATE: [0.0, 0.0, 0.0]
+    INIT: trunc_norm
+    KERNEL_QKV: [3, 3, 3]
+    MLP_RATIO: [4.0, 4.0, 4.0]
+    NUM_HEADS: [1, 3, 6]
+    NUM_STAGES: 3
+    PADDING_KV: [1, 1, 1]
+    PADDING_Q: [1, 1, 1]
+    PATCH_PADDING: [2, 1, 1]
+    PATCH_SIZE: [7, 3, 3]
+    PATCH_STRIDE: [4, 2, 2]
+    POS_EMBED: [False, False, False]
+    QKV_BIAS: [True, True, True]
+    QKV_PROJ_METHOD: ['dw_bn', 'dw_bn', 'dw_bn']
+    STRIDE_KV: [2, 2, 2]
+    STRIDE_Q: [1, 1, 1]
+MODEL_SUMMARY: False
+MULTIPROCESSING_DISTRIBUTED: True
+NAME: cvt-13-224x224_cifar100_esr
+OUTPUT_DIR: OUTPUT/
+PIN_MEMORY: True
+PRINT_FREQ: 100
+RANK: 0
+TEST:
+  BATCH_SIZE_PER_GPU: 512
+  CENTER_CROP: True
+  IMAGE_SIZE: [128, 128]
+  INTERPOLATION: 3
+  MODEL_FILE: 
+  REAL_LABELS: False
+  VALID_LABELS: 
+TRAIN:
+  AUTO_RESUME: True
+  BATCH_SIZE_PER_GPU: 512
+  BEGIN_EPOCH: 0
+  CHECKPOINT: 
+  CLIP_GRAD_NORM: 0.0
+  DETECT_ANOMALY: False
+  END_EPOCH: 200
+  EVAL_BEGIN_EPOCH: 0
+  GAMMA1: 0.99
+  GAMMA2: 0.0
+  IMAGE_SIZE: [128, 128]
+  LR: 0.00025
+  LR_SCHEDULER:
+    ARGS:
+      cooldown_epochs: 10
+      decay_rate: 0.1
+      epochs: 200
+      min_lr: 1e-05
+      sched: cosine
+      warmup_epochs: 5
+      warmup_lr: 1e-06
+    METHOD: timm
+  MOMENTUM: 0.9
+  NESTEROV: True
+  OPTIMIZER: adamW
+  OPTIMIZER_ARGS:
+    
+  SAVE_ALL_MODELS: False
+  SCALE_LR: True
+  SHUFFLE: True
+  WD: 0.05
+  WITHOUT_WD_LIST: ['bn', 'bias', 'ln']
+VERBOSE: True
+WORKERS: 6
+2022-12-27 11:07:02,219:[P:9151]:Rank[0/1] => using 1 GPUs
+2022-12-27 11:07:02,219:[P:9151]:Rank[0/1] => saving config into: OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/config.yaml
+2022-12-27 11:07:02,259:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,260:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,260:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,261:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,261:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,261:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,262:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,262:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,262:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,263:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,263:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,264:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,291:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,295:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,296:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,298:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,299:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,302:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,303:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,306:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,306:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,310:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,310:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,312:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,313:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,315:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,315:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,319:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,319:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,322:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,323:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,326:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,327:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,330:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,330:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,333:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,560:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,561:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,561:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,563:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,563:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,564:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,564:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,566:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,566:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,570:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,571:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,575:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,575:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,577:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,577:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,578:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,578:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,580:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,580:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,581:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,581:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,586:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,586:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,590:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,591:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,592:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,592:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,594:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,594:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,595:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,596:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,597:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,597:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,601:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,602:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,606:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,607:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,609:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,609:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,611:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,611:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,613:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,614:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,615:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,615:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,620:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,620:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,625:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,625:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,626:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,626:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,628:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,628:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,629:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,629:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,631:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,631:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,635:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,636:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,640:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,640:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,642:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,642:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,643:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,644:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,645:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,645:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,646:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,647:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,651:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,651:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,656:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,656:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,658:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,658:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,659:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,659:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,661:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,661:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,662:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,662:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,667:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,667:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,672:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,672:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,673:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,673:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,675:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,675:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,676:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,676:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,678:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,678:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,683:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,683:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,687:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,688:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,689:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,689:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,691:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,691:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,692:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,692:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,694:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,694:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,698:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,699:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,703:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,703:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,705:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,705:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,706:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,706:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,708:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,708:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,709:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,709:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,714:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:02,714:[P:9151]:Rank[0/1] => init weight of Linear from trunc norm
+2022-12-27 11:07:02,719:[P:9151]:Rank[0/1] => init bias of Linear to zeros
+2022-12-27 11:07:06,328:[P:9151]:Rank[0/1] => ConvolutionalVisionTransformer(
+  (stage0): VisionTransformer(
+    (patch_embed): ConvEmbed(
+      (proj): Conv2d(3, 64, kernel_size=(7, 7), stride=(4, 4), padding=(2, 2))
+      (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+    )
+    (pos_drop): Dropout(p=0.0, inplace=False)
+    (blocks): ModuleList(
+      (0): Block(
+        (norm1): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+        (attn): Attention(
+          (conv_proj_q): Sequential(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_k): Sequential(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_v): Sequential(
+            (conv): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=64, bias=False)
+            (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (proj_q): Linear(in_features=64, out_features=64, bias=True)
+          (proj_k): Linear(in_features=64, out_features=64, bias=True)
+          (proj_v): Linear(in_features=64, out_features=64, bias=True)
+          (attn_drop): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=64, out_features=64, bias=True)
+          (proj_drop): Dropout(p=0.0, inplace=False)
+        )
+        (drop_path): Identity()
+        (norm2): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+        (mlp): Mlp(
+          (fc1): Linear(in_features=64, out_features=256, bias=True)
+          (act): QuickGELU()
+          (fc2): Linear(in_features=256, out_features=64, bias=True)
+          (drop): Dropout(p=0.0, inplace=False)
+        )
+      )
+    )
+  )
+  (stage1): VisionTransformer(
+    (patch_embed): ConvEmbed(
+      (proj): Conv2d(64, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (norm): LayerNorm((192,), eps=1e-05, elementwise_affine=True)
+    )
+    (pos_drop): Dropout(p=0.0, inplace=False)
+    (blocks): ModuleList(
+      (0): Block(
+        (norm1): LayerNorm((192,), eps=1e-05, elementwise_affine=True)
+        (attn): Attention(
+          (conv_proj_q): Sequential(
+            (conv): Conv2d(192, 192, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=192, bias=False)
+            (bn): BatchNorm2d(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_k): Sequential(
+            (conv): Conv2d(192, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=192, bias=False)
+            (bn): BatchNorm2d(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_v): Sequential(
+            (conv): Conv2d(192, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=192, bias=False)
+            (bn): BatchNorm2d(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (proj_q): Linear(in_features=192, out_features=192, bias=True)
+          (proj_k): Linear(in_features=192, out_features=192, bias=True)
+          (proj_v): Linear(in_features=192, out_features=192, bias=True)
+          (attn_drop): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=192, out_features=192, bias=True)
+          (proj_drop): Dropout(p=0.0, inplace=False)
+        )
+        (drop_path): Identity()
+        (norm2): LayerNorm((192,), eps=1e-05, elementwise_affine=True)
+        (mlp): Mlp(
+          (fc1): Linear(in_features=192, out_features=768, bias=True)
+          (act): QuickGELU()
+          (fc2): Linear(in_features=768, out_features=192, bias=True)
+          (drop): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (1): Block(
+        (norm1): LayerNorm((192,), eps=1e-05, elementwise_affine=True)
+        (attn): Attention(
+          (conv_proj_q): Sequential(
+            (conv): Conv2d(192, 192, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=192, bias=False)
+            (bn): BatchNorm2d(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_k): Sequential(
+            (conv): Conv2d(192, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=192, bias=False)
+            (bn): BatchNorm2d(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_v): Sequential(
+            (conv): Conv2d(192, 192, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=192, bias=False)
+            (bn): BatchNorm2d(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (proj_q): Linear(in_features=192, out_features=192, bias=True)
+          (proj_k): Linear(in_features=192, out_features=192, bias=True)
+          (proj_v): Linear(in_features=192, out_features=192, bias=True)
+          (attn_drop): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=192, out_features=192, bias=True)
+          (proj_drop): Dropout(p=0.0, inplace=False)
+        )
+        (drop_path): Identity()
+        (norm2): LayerNorm((192,), eps=1e-05, elementwise_affine=True)
+        (mlp): Mlp(
+          (fc1): Linear(in_features=192, out_features=768, bias=True)
+          (act): QuickGELU()
+          (fc2): Linear(in_features=768, out_features=192, bias=True)
+          (drop): Dropout(p=0.0, inplace=False)
+        )
+      )
+    )
+  )
+  (stage2): VisionTransformer(
+    (patch_embed): ConvEmbed(
+      (proj): Conv2d(192, 384, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (norm): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+    )
+    (pos_drop): Dropout(p=0.0, inplace=False)
+    (blocks): ModuleList(
+      (0): Block(
+        (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+        (attn): Attention(
+          (conv_proj_q): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_k): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_v): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (proj_q): Linear(in_features=384, out_features=384, bias=True)
+          (proj_k): Linear(in_features=384, out_features=384, bias=True)
+          (proj_v): Linear(in_features=384, out_features=384, bias=True)
+          (attn_drop): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=384, out_features=384, bias=True)
+          (proj_drop): Dropout(p=0.0, inplace=False)
+        )
+        (drop_path): Identity()
+        (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+        (mlp): Mlp(
+          (fc1): Linear(in_features=384, out_features=1536, bias=True)
+          (act): QuickGELU()
+          (fc2): Linear(in_features=1536, out_features=384, bias=True)
+          (drop): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (1): Block(
+        (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+        (attn): Attention(
+          (conv_proj_q): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_k): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_v): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (proj_q): Linear(in_features=384, out_features=384, bias=True)
+          (proj_k): Linear(in_features=384, out_features=384, bias=True)
+          (proj_v): Linear(in_features=384, out_features=384, bias=True)
+          (attn_drop): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=384, out_features=384, bias=True)
+          (proj_drop): Dropout(p=0.0, inplace=False)
+        )
+        (drop_path): DropPath()
+        (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+        (mlp): Mlp(
+          (fc1): Linear(in_features=384, out_features=1536, bias=True)
+          (act): QuickGELU()
+          (fc2): Linear(in_features=1536, out_features=384, bias=True)
+          (drop): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (2): Block(
+        (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+        (attn): Attention(
+          (conv_proj_q): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_k): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_v): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (proj_q): Linear(in_features=384, out_features=384, bias=True)
+          (proj_k): Linear(in_features=384, out_features=384, bias=True)
+          (proj_v): Linear(in_features=384, out_features=384, bias=True)
+          (attn_drop): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=384, out_features=384, bias=True)
+          (proj_drop): Dropout(p=0.0, inplace=False)
+        )
+        (drop_path): DropPath()
+        (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+        (mlp): Mlp(
+          (fc1): Linear(in_features=384, out_features=1536, bias=True)
+          (act): QuickGELU()
+          (fc2): Linear(in_features=1536, out_features=384, bias=True)
+          (drop): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (3): Block(
+        (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+        (attn): Attention(
+          (conv_proj_q): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_k): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_v): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (proj_q): Linear(in_features=384, out_features=384, bias=True)
+          (proj_k): Linear(in_features=384, out_features=384, bias=True)
+          (proj_v): Linear(in_features=384, out_features=384, bias=True)
+          (attn_drop): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=384, out_features=384, bias=True)
+          (proj_drop): Dropout(p=0.0, inplace=False)
+        )
+        (drop_path): DropPath()
+        (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+        (mlp): Mlp(
+          (fc1): Linear(in_features=384, out_features=1536, bias=True)
+          (act): QuickGELU()
+          (fc2): Linear(in_features=1536, out_features=384, bias=True)
+          (drop): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (4): Block(
+        (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+        (attn): Attention(
+          (conv_proj_q): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_k): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_v): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (proj_q): Linear(in_features=384, out_features=384, bias=True)
+          (proj_k): Linear(in_features=384, out_features=384, bias=True)
+          (proj_v): Linear(in_features=384, out_features=384, bias=True)
+          (attn_drop): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=384, out_features=384, bias=True)
+          (proj_drop): Dropout(p=0.0, inplace=False)
+        )
+        (drop_path): DropPath()
+        (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+        (mlp): Mlp(
+          (fc1): Linear(in_features=384, out_features=1536, bias=True)
+          (act): QuickGELU()
+          (fc2): Linear(in_features=1536, out_features=384, bias=True)
+          (drop): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (5): Block(
+        (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+        (attn): Attention(
+          (conv_proj_q): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_k): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_v): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (proj_q): Linear(in_features=384, out_features=384, bias=True)
+          (proj_k): Linear(in_features=384, out_features=384, bias=True)
+          (proj_v): Linear(in_features=384, out_features=384, bias=True)
+          (attn_drop): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=384, out_features=384, bias=True)
+          (proj_drop): Dropout(p=0.0, inplace=False)
+        )
+        (drop_path): DropPath()
+        (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+        (mlp): Mlp(
+          (fc1): Linear(in_features=384, out_features=1536, bias=True)
+          (act): QuickGELU()
+          (fc2): Linear(in_features=1536, out_features=384, bias=True)
+          (drop): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (6): Block(
+        (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+        (attn): Attention(
+          (conv_proj_q): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_k): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_v): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (proj_q): Linear(in_features=384, out_features=384, bias=True)
+          (proj_k): Linear(in_features=384, out_features=384, bias=True)
+          (proj_v): Linear(in_features=384, out_features=384, bias=True)
+          (attn_drop): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=384, out_features=384, bias=True)
+          (proj_drop): Dropout(p=0.0, inplace=False)
+        )
+        (drop_path): DropPath()
+        (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+        (mlp): Mlp(
+          (fc1): Linear(in_features=384, out_features=1536, bias=True)
+          (act): QuickGELU()
+          (fc2): Linear(in_features=1536, out_features=384, bias=True)
+          (drop): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (7): Block(
+        (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+        (attn): Attention(
+          (conv_proj_q): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_k): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_v): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (proj_q): Linear(in_features=384, out_features=384, bias=True)
+          (proj_k): Linear(in_features=384, out_features=384, bias=True)
+          (proj_v): Linear(in_features=384, out_features=384, bias=True)
+          (attn_drop): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=384, out_features=384, bias=True)
+          (proj_drop): Dropout(p=0.0, inplace=False)
+        )
+        (drop_path): DropPath()
+        (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+        (mlp): Mlp(
+          (fc1): Linear(in_features=384, out_features=1536, bias=True)
+          (act): QuickGELU()
+          (fc2): Linear(in_features=1536, out_features=384, bias=True)
+          (drop): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (8): Block(
+        (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+        (attn): Attention(
+          (conv_proj_q): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_k): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_v): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (proj_q): Linear(in_features=384, out_features=384, bias=True)
+          (proj_k): Linear(in_features=384, out_features=384, bias=True)
+          (proj_v): Linear(in_features=384, out_features=384, bias=True)
+          (attn_drop): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=384, out_features=384, bias=True)
+          (proj_drop): Dropout(p=0.0, inplace=False)
+        )
+        (drop_path): DropPath()
+        (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+        (mlp): Mlp(
+          (fc1): Linear(in_features=384, out_features=1536, bias=True)
+          (act): QuickGELU()
+          (fc2): Linear(in_features=1536, out_features=384, bias=True)
+          (drop): Dropout(p=0.0, inplace=False)
+        )
+      )
+      (9): Block(
+        (norm1): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+        (attn): Attention(
+          (conv_proj_q): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_k): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (conv_proj_v): Sequential(
+            (conv): Conv2d(384, 384, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), groups=384, bias=False)
+            (bn): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+            (rearrage): Rearrange('b c h w -> b (h w) c')
+          )
+          (proj_q): Linear(in_features=384, out_features=384, bias=True)
+          (proj_k): Linear(in_features=384, out_features=384, bias=True)
+          (proj_v): Linear(in_features=384, out_features=384, bias=True)
+          (attn_drop): Dropout(p=0.0, inplace=False)
+          (proj): Linear(in_features=384, out_features=384, bias=True)
+          (proj_drop): Dropout(p=0.0, inplace=False)
+        )
+        (drop_path): DropPath()
+        (norm2): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+        (mlp): Mlp(
+          (fc1): Linear(in_features=384, out_features=1536, bias=True)
+          (act): QuickGELU()
+          (fc2): Linear(in_features=1536, out_features=384, bias=True)
+          (drop): Dropout(p=0.0, inplace=False)
+        )
+      )
+    )
+  )
+  (norm): LayerNorm((384,), eps=1e-05, elementwise_affine=True)
+  (head): Linear(in_features=384, out_features=1000, bias=True)
+)
+2022-12-27 11:07:06,334:[P:9151]:Rank[0/1] Trainable Model Total Parameter: 	20.0M
+2022-12-27 11:07:06,695:[P:9151]:Rank[0/1] => use timm loader for training
+2022-12-27 11:07:07,098:[P:9151]:Rank[0/1] => start training
+2022-12-27 11:07:07,098:[P:9151]:Rank[0/1] => Epoch[0]: epoch start
+2022-12-27 11:07:07,098:[P:9151]:Rank[0/1] => Epoch[0]: train start
+2022-12-27 11:07:07,099:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:07:09,934:[P:9151]:Rank[0/1] => Epoch[0][0/97]: Time 2.833s (2.833s)	Speed 180.8 samples/s	Data 1.406s (1.406s)	Loss 6.98106 (6.98106)	Accuracy@1 0.000 (0.000)	Accuracy@5 0.000 (0.000)	
+2022-12-27 11:07:58,002:[P:9151]:Rank[0/1] => Epoch[0]: train end, duration: 50.90s
+2022-12-27 11:07:58,003:[P:9151]:Rank[0/1] => Epoch[0]: validate start
+2022-12-27 11:07:58,003:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:08:04,735:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:08:04,736:[P:9151]:Rank[0/1] => TEST:	Loss 6.5711	Error@1 98.920%	Error@5 94.640%	Accuracy@1 1.080%	Accuracy@5 5.360%	
+2022-12-27 11:08:04,737:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:08:04,741:[P:9151]:Rank[0/1] => Epoch[0]: validate end, duration: 6.74s
+2022-12-27 11:08:04,742:[P:9151]:Rank[0/1] => lr: 5.0799999999999995e-05
+2022-12-27 11:08:04,746:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:08:05,526:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:08:05,749:[P:9151]:Rank[0/1] => Epoch[0]: epoch end, duration : 58.65s
+2022-12-27 11:08:05,749:[P:9151]:Rank[0/1] => Epoch[1]: epoch start
+2022-12-27 11:08:05,749:[P:9151]:Rank[0/1] => Epoch[1]: train start
+2022-12-27 11:08:05,749:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:08:06,291:[P:9151]:Rank[0/1] => Epoch[1][0/97]: Time 0.540s (0.540s)	Speed 948.5 samples/s	Data 0.031s (0.031s)	Loss 6.69134 (6.69134)	Accuracy@1 0.586 (0.586)	Accuracy@5 4.102 (4.102)	
+2022-12-27 11:08:54,216:[P:9151]:Rank[0/1] => Epoch[1]: train end, duration: 48.47s
+2022-12-27 11:08:54,217:[P:9151]:Rank[0/1] => Epoch[1]: validate start
+2022-12-27 11:08:54,217:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:09:00,434:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:09:00,435:[P:9151]:Rank[0/1] => TEST:	Loss 4.6793	Error@1 95.160%	Error@5 81.940%	Accuracy@1 4.840%	Accuracy@5 18.060%	
+2022-12-27 11:09:00,435:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:09:00,439:[P:9151]:Rank[0/1] => Epoch[1]: validate end, duration: 6.22s
+2022-12-27 11:09:00,440:[P:9151]:Rank[0/1] => lr: 0.00010059999999999999
+2022-12-27 11:09:00,444:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:09:01,064:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:09:01,344:[P:9151]:Rank[0/1] => Epoch[1]: epoch end, duration : 55.59s
+2022-12-27 11:09:01,344:[P:9151]:Rank[0/1] => Epoch[2]: epoch start
+2022-12-27 11:09:01,344:[P:9151]:Rank[0/1] => Epoch[2]: train start
+2022-12-27 11:09:01,344:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:09:01,857:[P:9151]:Rank[0/1] => Epoch[2][0/97]: Time 0.510s (0.510s)	Speed 1002.9 samples/s	Data 0.029s (0.029s)	Loss 5.12309 (5.12309)	Accuracy@1 3.320 (3.320)	Accuracy@5 10.938 (10.938)	
+2022-12-27 11:09:49,760:[P:9151]:Rank[0/1] => Epoch[2]: train end, duration: 48.42s
+2022-12-27 11:09:49,761:[P:9151]:Rank[0/1] => Epoch[2]: validate start
+2022-12-27 11:09:49,761:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:09:56,041:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:09:56,042:[P:9151]:Rank[0/1] => TEST:	Loss 4.3418	Error@1 92.700%	Error@5 74.620%	Accuracy@1 7.300%	Accuracy@5 25.380%	
+2022-12-27 11:09:56,042:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:09:56,047:[P:9151]:Rank[0/1] => Epoch[2]: validate end, duration: 6.29s
+2022-12-27 11:09:56,047:[P:9151]:Rank[0/1] => lr: 0.0001504
+2022-12-27 11:09:56,051:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:09:56,718:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:09:57,006:[P:9151]:Rank[0/1] => Epoch[2]: epoch end, duration : 55.66s
+2022-12-27 11:09:57,006:[P:9151]:Rank[0/1] => Epoch[3]: epoch start
+2022-12-27 11:09:57,006:[P:9151]:Rank[0/1] => Epoch[3]: train start
+2022-12-27 11:09:57,007:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:09:57,519:[P:9151]:Rank[0/1] => Epoch[3][0/97]: Time 0.511s (0.511s)	Speed 1002.8 samples/s	Data 0.028s (0.028s)	Loss 4.94909 (4.94909)	Accuracy@1 6.055 (6.055)	Accuracy@5 19.141 (19.141)	
+2022-12-27 11:10:45,401:[P:9151]:Rank[0/1] => Epoch[3]: train end, duration: 48.39s
+2022-12-27 11:10:45,402:[P:9151]:Rank[0/1] => Epoch[3]: validate start
+2022-12-27 11:10:45,403:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:10:51,767:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:10:51,768:[P:9151]:Rank[0/1] => TEST:	Loss 4.1624	Error@1 90.220%	Error@5 69.140%	Accuracy@1 9.780%	Accuracy@5 30.860%	
+2022-12-27 11:10:51,768:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:10:51,771:[P:9151]:Rank[0/1] => Epoch[3]: validate end, duration: 6.37s
+2022-12-27 11:10:51,772:[P:9151]:Rank[0/1] => lr: 0.0002002
+2022-12-27 11:10:51,777:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:10:52,415:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:10:52,643:[P:9151]:Rank[0/1] => Epoch[3]: epoch end, duration : 55.64s
+2022-12-27 11:10:52,644:[P:9151]:Rank[0/1] => Epoch[4]: epoch start
+2022-12-27 11:10:52,644:[P:9151]:Rank[0/1] => Epoch[4]: train start
+2022-12-27 11:10:52,644:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:10:53,157:[P:9151]:Rank[0/1] => Epoch[4][0/97]: Time 0.511s (0.511s)	Speed 1001.1 samples/s	Data 0.029s (0.029s)	Loss 4.86186 (4.86186)	Accuracy@1 5.273 (5.273)	Accuracy@5 19.531 (19.531)	
+2022-12-27 11:11:41,124:[P:9151]:Rank[0/1] => Epoch[4]: train end, duration: 48.48s
+2022-12-27 11:11:41,125:[P:9151]:Rank[0/1] => Epoch[4]: validate start
+2022-12-27 11:11:41,126:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:11:47,487:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:11:47,487:[P:9151]:Rank[0/1] => TEST:	Loss 3.9558	Error@1 87.520%	Error@5 63.320%	Accuracy@1 12.480%	Accuracy@5 36.680%	
+2022-12-27 11:11:47,488:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:11:47,491:[P:9151]:Rank[0/1] => Epoch[4]: validate end, duration: 6.37s
+2022-12-27 11:11:47,492:[P:9151]:Rank[0/1] => lr: 0.0002496300800479754
+2022-12-27 11:11:47,497:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:11:48,126:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:11:48,447:[P:9151]:Rank[0/1] => Epoch[4]: epoch end, duration : 55.80s
+2022-12-27 11:11:48,448:[P:9151]:Rank[0/1] => Epoch[5]: epoch start
+2022-12-27 11:11:48,448:[P:9151]:Rank[0/1] => Epoch[5]: train start
+2022-12-27 11:11:48,448:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:11:48,959:[P:9151]:Rank[0/1] => Epoch[5][0/97]: Time 0.509s (0.509s)	Speed 1005.3 samples/s	Data 0.027s (0.027s)	Loss 4.76956 (4.76956)	Accuracy@1 8.594 (8.594)	Accuracy@5 27.148 (27.148)	
+2022-12-27 11:12:36,795:[P:9151]:Rank[0/1] => Epoch[5]: train end, duration: 48.35s
+2022-12-27 11:12:36,796:[P:9151]:Rank[0/1] => Epoch[5]: validate start
+2022-12-27 11:12:36,797:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:12:43,177:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:12:43,177:[P:9151]:Rank[0/1] => TEST:	Loss 3.7937	Error@1 84.800%	Error@5 59.010%	Accuracy@1 15.200%	Accuracy@5 40.990%	
+2022-12-27 11:12:43,178:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:12:43,181:[P:9151]:Rank[0/1] => Epoch[5]: validate end, duration: 6.38s
+2022-12-27 11:12:43,182:[P:9151]:Rank[0/1] => lr: 0.00024946743575236964
+2022-12-27 11:12:43,186:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:12:43,798:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:12:44,100:[P:9151]:Rank[0/1] => Epoch[5]: epoch end, duration : 55.65s
+2022-12-27 11:12:44,100:[P:9151]:Rank[0/1] => Epoch[6]: epoch start
+2022-12-27 11:12:44,100:[P:9151]:Rank[0/1] => Epoch[6]: train start
+2022-12-27 11:12:44,100:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:12:44,613:[P:9151]:Rank[0/1] => Epoch[6][0/97]: Time 0.510s (0.510s)	Speed 1003.1 samples/s	Data 0.031s (0.031s)	Loss 4.96771 (4.96771)	Accuracy@1 3.125 (3.125)	Accuracy@5 13.867 (13.867)	
+2022-12-27 11:13:32,472:[P:9151]:Rank[0/1] => Epoch[6]: train end, duration: 48.37s
+2022-12-27 11:13:32,473:[P:9151]:Rank[0/1] => Epoch[6]: validate start
+2022-12-27 11:13:32,473:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:13:38,749:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:13:38,749:[P:9151]:Rank[0/1] => TEST:	Loss 3.6551	Error@1 80.700%	Error@5 52.860%	Accuracy@1 19.300%	Accuracy@5 47.140%	
+2022-12-27 11:13:38,750:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:13:38,756:[P:9151]:Rank[0/1] => Epoch[6]: validate end, duration: 6.28s
+2022-12-27 11:13:38,757:[P:9151]:Rank[0/1] => lr: 0.0002492753146546216
+2022-12-27 11:13:38,766:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:13:39,391:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:13:39,604:[P:9151]:Rank[0/1] => Epoch[6]: epoch end, duration : 55.50s
+2022-12-27 11:13:39,604:[P:9151]:Rank[0/1] => Epoch[7]: epoch start
+2022-12-27 11:13:39,604:[P:9151]:Rank[0/1] => Epoch[7]: train start
+2022-12-27 11:13:39,604:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:13:40,114:[P:9151]:Rank[0/1] => Epoch[7][0/97]: Time 0.508s (0.508s)	Speed 1007.5 samples/s	Data 0.027s (0.027s)	Loss 4.62844 (4.62844)	Accuracy@1 9.570 (9.570)	Accuracy@5 32.031 (32.031)	
+2022-12-27 11:14:28,011:[P:9151]:Rank[0/1] => Epoch[7]: train end, duration: 48.41s
+2022-12-27 11:14:28,012:[P:9151]:Rank[0/1] => Epoch[7]: validate start
+2022-12-27 11:14:28,012:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:14:34,268:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:14:34,268:[P:9151]:Rank[0/1] => TEST:	Loss 3.5313	Error@1 78.730%	Error@5 49.800%	Accuracy@1 21.270%	Accuracy@5 50.200%	
+2022-12-27 11:14:34,269:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:14:34,272:[P:9151]:Rank[0/1] => Epoch[7]: validate end, duration: 6.26s
+2022-12-27 11:14:34,273:[P:9151]:Rank[0/1] => lr: 0.00024905376415773736
+2022-12-27 11:14:34,277:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:14:34,916:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:14:35,139:[P:9151]:Rank[0/1] => Epoch[7]: epoch end, duration : 55.54s
+2022-12-27 11:14:35,139:[P:9151]:Rank[0/1] => Epoch[8]: epoch start
+2022-12-27 11:14:35,139:[P:9151]:Rank[0/1] => Epoch[8]: train start
+2022-12-27 11:14:35,140:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:14:35,651:[P:9151]:Rank[0/1] => Epoch[8][0/97]: Time 0.510s (0.510s)	Speed 1004.8 samples/s	Data 0.027s (0.027s)	Loss 4.77025 (4.77025)	Accuracy@1 8.398 (8.398)	Accuracy@5 29.688 (29.688)	
+2022-12-27 11:15:25,087:[P:9151]:Rank[0/1] => Epoch[8]: train end, duration: 49.95s
+2022-12-27 11:15:25,088:[P:9151]:Rank[0/1] => Epoch[8]: validate start
+2022-12-27 11:15:25,089:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:15:32,042:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:15:32,043:[P:9151]:Rank[0/1] => TEST:	Loss 3.4117	Error@1 77.380%	Error@5 47.560%	Accuracy@1 22.620%	Accuracy@5 52.440%	
+2022-12-27 11:15:32,043:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:15:32,047:[P:9151]:Rank[0/1] => Epoch[8]: validate end, duration: 6.96s
+2022-12-27 11:15:32,048:[P:9151]:Rank[0/1] => lr: 0.0002488028389259869
+2022-12-27 11:15:32,053:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:15:33,114:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:15:33,452:[P:9151]:Rank[0/1] => Epoch[8]: epoch end, duration : 58.31s
+2022-12-27 11:15:33,452:[P:9151]:Rank[0/1] => Epoch[9]: epoch start
+2022-12-27 11:15:33,453:[P:9151]:Rank[0/1] => Epoch[9]: train start
+2022-12-27 11:15:33,453:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:15:33,996:[P:9151]:Rank[0/1] => Epoch[9][0/97]: Time 0.541s (0.541s)	Speed 947.2 samples/s	Data 0.036s (0.036s)	Loss 4.55738 (4.55738)	Accuracy@1 13.867 (13.867)	Accuracy@5 35.547 (35.547)	
+2022-12-27 11:16:22,609:[P:9151]:Rank[0/1] => Epoch[9]: train end, duration: 49.16s
+2022-12-27 11:16:22,610:[P:9151]:Rank[0/1] => Epoch[9]: validate start
+2022-12-27 11:16:22,610:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:16:28,911:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:16:28,911:[P:9151]:Rank[0/1] => TEST:	Loss 3.2817	Error@1 74.600%	Error@5 43.780%	Accuracy@1 25.400%	Accuracy@5 56.220%	
+2022-12-27 11:16:28,912:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:16:28,914:[P:9151]:Rank[0/1] => Epoch[9]: validate end, duration: 6.30s
+2022-12-27 11:16:28,915:[P:9151]:Rank[0/1] => lr: 0.0002485226008714166
+2022-12-27 11:16:28,919:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:16:29,540:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:16:30,308:[P:9151]:Rank[0/1] => Epoch[9]: epoch end, duration : 56.86s
+2022-12-27 11:16:30,308:[P:9151]:Rank[0/1] => Epoch[10]: epoch start
+2022-12-27 11:16:30,308:[P:9151]:Rank[0/1] => Epoch[10]: train start
+2022-12-27 11:16:30,309:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:16:30,821:[P:9151]:Rank[0/1] => Epoch[10][0/97]: Time 0.511s (0.511s)	Speed 1002.5 samples/s	Data 0.028s (0.028s)	Loss 4.74810 (4.74810)	Accuracy@1 10.352 (10.352)	Accuracy@5 29.492 (29.492)	
+2022-12-27 11:17:18,829:[P:9151]:Rank[0/1] => Epoch[10]: train end, duration: 48.52s
+2022-12-27 11:17:18,830:[P:9151]:Rank[0/1] => Epoch[10]: validate start
+2022-12-27 11:17:18,830:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:17:25,156:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:17:25,156:[P:9151]:Rank[0/1] => TEST:	Loss 3.1550	Error@1 73.190%	Error@5 41.410%	Accuracy@1 26.810%	Accuracy@5 58.590%	
+2022-12-27 11:17:25,157:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:17:25,161:[P:9151]:Rank[0/1] => Epoch[10]: validate end, duration: 6.33s
+2022-12-27 11:17:25,162:[P:9151]:Rank[0/1] => lr: 0.00024821311913857287
+2022-12-27 11:17:25,167:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:17:25,805:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:17:26,073:[P:9151]:Rank[0/1] => Epoch[10]: epoch end, duration : 55.76s
+2022-12-27 11:17:26,074:[P:9151]:Rank[0/1] => Epoch[11]: epoch start
+2022-12-27 11:17:26,074:[P:9151]:Rank[0/1] => Epoch[11]: train start
+2022-12-27 11:17:26,074:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:17:26,589:[P:9151]:Rank[0/1] => Epoch[11][0/97]: Time 0.513s (0.513s)	Speed 998.3 samples/s	Data 0.028s (0.028s)	Loss 4.31283 (4.31283)	Accuracy@1 16.211 (16.211)	Accuracy@5 40.039 (40.039)	
+2022-12-27 11:18:14,595:[P:9151]:Rank[0/1] => Epoch[11]: train end, duration: 48.52s
+2022-12-27 11:18:14,597:[P:9151]:Rank[0/1] => Epoch[11]: validate start
+2022-12-27 11:18:14,597:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:18:20,937:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:18:20,938:[P:9151]:Rank[0/1] => TEST:	Loss 3.0624	Error@1 69.220%	Error@5 37.850%	Accuracy@1 30.780%	Accuracy@5 62.150%	
+2022-12-27 11:18:20,938:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:18:20,941:[P:9151]:Rank[0/1] => Epoch[11]: validate end, duration: 6.34s
+2022-12-27 11:18:20,942:[P:9151]:Rank[0/1] => lr: 0.0002478744700874427
+2022-12-27 11:18:20,947:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:18:21,682:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:18:21,904:[P:9151]:Rank[0/1] => Epoch[11]: epoch end, duration : 55.83s
+2022-12-27 11:18:21,904:[P:9151]:Rank[0/1] => Epoch[12]: epoch start
+2022-12-27 11:18:21,904:[P:9151]:Rank[0/1] => Epoch[12]: train start
+2022-12-27 11:18:21,904:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:18:22,419:[P:9151]:Rank[0/1] => Epoch[12][0/97]: Time 0.513s (0.513s)	Speed 998.5 samples/s	Data 0.027s (0.027s)	Loss 4.56543 (4.56543)	Accuracy@1 13.086 (13.086)	Accuracy@5 34.375 (34.375)	
+2022-12-27 11:19:10,255:[P:9151]:Rank[0/1] => Epoch[12]: train end, duration: 48.35s
+2022-12-27 11:19:10,255:[P:9151]:Rank[0/1] => Epoch[12]: validate start
+2022-12-27 11:19:10,256:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:19:16,596:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:19:16,596:[P:9151]:Rank[0/1] => TEST:	Loss 2.9971	Error@1 70.630%	Error@5 37.750%	Accuracy@1 29.370%	Accuracy@5 62.250%	
+2022-12-27 11:19:16,597:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:19:16,600:[P:9151]:Rank[0/1] => Epoch[12]: validate end, duration: 6.34s
+2022-12-27 11:19:16,601:[P:9151]:Rank[0/1] => lr: 0.0002475067372746119
+2022-12-27 11:19:16,605:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:19:17,223:[P:9151]:Rank[0/1] => Epoch[12]: epoch end, duration : 55.32s
+2022-12-27 11:19:17,223:[P:9151]:Rank[0/1] => Epoch[13]: epoch start
+2022-12-27 11:19:17,223:[P:9151]:Rank[0/1] => Epoch[13]: train start
+2022-12-27 11:19:17,223:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:19:17,733:[P:9151]:Rank[0/1] => Epoch[13][0/97]: Time 0.507s (0.507s)	Speed 1008.9 samples/s	Data 0.026s (0.026s)	Loss 4.55976 (4.55976)	Accuracy@1 16.211 (16.211)	Accuracy@5 38.672 (38.672)	
+2022-12-27 11:20:05,687:[P:9151]:Rank[0/1] => Epoch[13]: train end, duration: 48.46s
+2022-12-27 11:20:05,688:[P:9151]:Rank[0/1] => Epoch[13]: validate start
+2022-12-27 11:20:05,688:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:20:12,069:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:20:12,069:[P:9151]:Rank[0/1] => TEST:	Loss 2.8641	Error@1 66.220%	Error@5 33.570%	Accuracy@1 33.780%	Accuracy@5 66.430%	
+2022-12-27 11:20:12,070:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:20:12,073:[P:9151]:Rank[0/1] => Epoch[13]: validate end, duration: 6.39s
+2022-12-27 11:20:12,074:[P:9151]:Rank[0/1] => lr: 0.00024711001143264973
+2022-12-27 11:20:12,079:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:20:12,697:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:20:12,910:[P:9151]:Rank[0/1] => Epoch[13]: epoch end, duration : 55.69s
+2022-12-27 11:20:12,910:[P:9151]:Rank[0/1] => Epoch[14]: epoch start
+2022-12-27 11:20:12,910:[P:9151]:Rank[0/1] => Epoch[14]: train start
+2022-12-27 11:20:12,910:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:20:13,429:[P:9151]:Rank[0/1] => Epoch[14][0/97]: Time 0.516s (0.516s)	Speed 991.5 samples/s	Data 0.034s (0.034s)	Loss 4.18863 (4.18863)	Accuracy@1 21.680 (21.680)	Accuracy@5 47.266 (47.266)	
+2022-12-27 11:21:01,430:[P:9151]:Rank[0/1] => Epoch[14]: train end, duration: 48.52s
+2022-12-27 11:21:01,431:[P:9151]:Rank[0/1] => Epoch[14]: validate start
+2022-12-27 11:21:01,431:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:21:07,794:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:21:07,794:[P:9151]:Rank[0/1] => TEST:	Loss 2.8221	Error@1 65.120%	Error@5 32.230%	Accuracy@1 34.880%	Accuracy@5 67.770%	
+2022-12-27 11:21:07,795:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:21:07,798:[P:9151]:Rank[0/1] => Epoch[14]: validate end, duration: 6.37s
+2022-12-27 11:21:07,799:[P:9151]:Rank[0/1] => lr: 0.0002466843904477212
+2022-12-27 11:21:07,804:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:21:08,420:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:21:08,633:[P:9151]:Rank[0/1] => Epoch[14]: epoch end, duration : 55.72s
+2022-12-27 11:21:08,633:[P:9151]:Rank[0/1] => Epoch[15]: epoch start
+2022-12-27 11:21:08,634:[P:9151]:Rank[0/1] => Epoch[15]: train start
+2022-12-27 11:21:08,634:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:21:09,142:[P:9151]:Rank[0/1] => Epoch[15][0/97]: Time 0.507s (0.507s)	Speed 1010.7 samples/s	Data 0.027s (0.027s)	Loss 4.63352 (4.63352)	Accuracy@1 12.109 (12.109)	Accuracy@5 32.617 (32.617)	
+2022-12-27 11:21:56,993:[P:9151]:Rank[0/1] => Epoch[15]: train end, duration: 48.36s
+2022-12-27 11:21:56,994:[P:9151]:Rank[0/1] => Epoch[15]: validate start
+2022-12-27 11:21:56,994:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:22:03,175:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:22:03,176:[P:9151]:Rank[0/1] => TEST:	Loss 2.8047	Error@1 64.850%	Error@5 32.500%	Accuracy@1 35.150%	Accuracy@5 67.500%	
+2022-12-27 11:22:03,176:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:22:03,179:[P:9151]:Rank[0/1] => Epoch[15]: validate end, duration: 6.18s
+2022-12-27 11:22:03,179:[P:9151]:Rank[0/1] => lr: 0.00024622997933543576
+2022-12-27 11:22:03,183:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:22:03,803:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:22:04,018:[P:9151]:Rank[0/1] => Epoch[15]: epoch end, duration : 55.38s
+2022-12-27 11:22:04,018:[P:9151]:Rank[0/1] => Epoch[16]: epoch start
+2022-12-27 11:22:04,019:[P:9151]:Rank[0/1] => Epoch[16]: train start
+2022-12-27 11:22:04,019:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:22:04,534:[P:9151]:Rank[0/1] => Epoch[16][0/97]: Time 0.513s (0.513s)	Speed 997.7 samples/s	Data 0.028s (0.028s)	Loss 4.39423 (4.39423)	Accuracy@1 17.188 (17.188)	Accuracy@5 41.992 (41.992)	
+2022-12-27 11:22:52,463:[P:9151]:Rank[0/1] => Epoch[16]: train end, duration: 48.44s
+2022-12-27 11:22:52,463:[P:9151]:Rank[0/1] => Epoch[16]: validate start
+2022-12-27 11:22:52,464:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:22:58,794:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:22:58,794:[P:9151]:Rank[0/1] => TEST:	Loss 2.6686	Error@1 61.970%	Error@5 29.920%	Accuracy@1 38.030%	Accuracy@5 70.080%	
+2022-12-27 11:22:58,795:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:22:58,797:[P:9151]:Rank[0/1] => Epoch[16]: validate end, duration: 6.33s
+2022-12-27 11:22:58,798:[P:9151]:Rank[0/1] => lr: 0.0002457468902149358
+2022-12-27 11:22:58,802:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:22:59,424:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:22:59,656:[P:9151]:Rank[0/1] => Epoch[16]: epoch end, duration : 55.64s
+2022-12-27 11:22:59,657:[P:9151]:Rank[0/1] => Epoch[17]: epoch start
+2022-12-27 11:22:59,657:[P:9151]:Rank[0/1] => Epoch[17]: train start
+2022-12-27 11:22:59,657:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:23:00,174:[P:9151]:Rank[0/1] => Epoch[17][0/97]: Time 0.514s (0.514s)	Speed 995.2 samples/s	Data 0.030s (0.030s)	Loss 4.15836 (4.15836)	Accuracy@1 22.656 (22.656)	Accuracy@5 48.828 (48.828)	
+2022-12-27 11:23:48,035:[P:9151]:Rank[0/1] => Epoch[17]: train end, duration: 48.38s
+2022-12-27 11:23:48,035:[P:9151]:Rank[0/1] => Epoch[17]: validate start
+2022-12-27 11:23:48,036:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:23:54,359:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:23:54,360:[P:9151]:Rank[0/1] => TEST:	Loss 2.7111	Error@1 62.960%	Error@5 31.190%	Accuracy@1 37.040%	Accuracy@5 68.810%	
+2022-12-27 11:23:54,361:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:23:54,365:[P:9151]:Rank[0/1] => Epoch[17]: validate end, duration: 6.33s
+2022-12-27 11:23:54,366:[P:9151]:Rank[0/1] => lr: 0.00024523524228123317
+2022-12-27 11:23:54,370:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:23:55,000:[P:9151]:Rank[0/1] => Epoch[17]: epoch end, duration : 55.34s
+2022-12-27 11:23:55,000:[P:9151]:Rank[0/1] => Epoch[18]: epoch start
+2022-12-27 11:23:55,001:[P:9151]:Rank[0/1] => Epoch[18]: train start
+2022-12-27 11:23:55,001:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:23:55,512:[P:9151]:Rank[0/1] => Epoch[18][0/97]: Time 0.509s (0.509s)	Speed 1005.8 samples/s	Data 0.025s (0.025s)	Loss 4.64173 (4.64173)	Accuracy@1 10.156 (10.156)	Accuracy@5 27.344 (27.344)	
+2022-12-27 11:24:43,342:[P:9151]:Rank[0/1] => Epoch[18]: train end, duration: 48.34s
+2022-12-27 11:24:43,343:[P:9151]:Rank[0/1] => Epoch[18]: validate start
+2022-12-27 11:24:43,343:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:24:49,582:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:24:49,583:[P:9151]:Rank[0/1] => TEST:	Loss 2.5738	Error@1 60.500%	Error@5 28.020%	Accuracy@1 39.500%	Accuracy@5 71.980%	
+2022-12-27 11:24:49,583:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:24:49,586:[P:9151]:Rank[0/1] => Epoch[18]: validate end, duration: 6.24s
+2022-12-27 11:24:49,587:[P:9151]:Rank[0/1] => lr: 0.00024469516177579964
+2022-12-27 11:24:49,591:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:24:50,212:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:24:50,428:[P:9151]:Rank[0/1] => Epoch[18]: epoch end, duration : 55.43s
+2022-12-27 11:24:50,428:[P:9151]:Rank[0/1] => Epoch[19]: epoch start
+2022-12-27 11:24:50,429:[P:9151]:Rank[0/1] => Epoch[19]: train start
+2022-12-27 11:24:50,429:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:24:50,939:[P:9151]:Rank[0/1] => Epoch[19][0/97]: Time 0.509s (0.509s)	Speed 1006.5 samples/s	Data 0.027s (0.027s)	Loss 4.60957 (4.60957)	Accuracy@1 12.305 (12.305)	Accuracy@5 34.961 (34.961)	
+2022-12-27 11:25:38,927:[P:9151]:Rank[0/1] => Epoch[19]: train end, duration: 48.50s
+2022-12-27 11:25:38,928:[P:9151]:Rank[0/1] => Epoch[19]: validate start
+2022-12-27 11:25:38,928:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:25:45,185:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:25:45,186:[P:9151]:Rank[0/1] => TEST:	Loss 2.5486	Error@1 58.550%	Error@5 26.690%	Accuracy@1 41.450%	Accuracy@5 73.310%	
+2022-12-27 11:25:45,186:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:25:45,191:[P:9151]:Rank[0/1] => Epoch[19]: validate end, duration: 6.26s
+2022-12-27 11:25:45,192:[P:9151]:Rank[0/1] => lr: 0.00024412678195541844
+2022-12-27 11:25:45,197:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:25:45,853:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:25:46,076:[P:9151]:Rank[0/1] => Epoch[19]: epoch end, duration : 55.65s
+2022-12-27 11:25:46,076:[P:9151]:Rank[0/1] => Epoch[20]: epoch start
+2022-12-27 11:25:46,076:[P:9151]:Rank[0/1] => Epoch[20]: train start
+2022-12-27 11:25:46,076:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:25:46,589:[P:9151]:Rank[0/1] => Epoch[20][0/97]: Time 0.511s (0.511s)	Speed 1002.1 samples/s	Data 0.028s (0.028s)	Loss 3.84971 (3.84971)	Accuracy@1 25.781 (25.781)	Accuracy@5 55.469 (55.469)	
+2022-12-27 11:26:34,489:[P:9151]:Rank[0/1] => Epoch[20]: train end, duration: 48.41s
+2022-12-27 11:26:34,490:[P:9151]:Rank[0/1] => Epoch[20]: validate start
+2022-12-27 11:26:34,491:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:26:40,813:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:26:40,814:[P:9151]:Rank[0/1] => TEST:	Loss 2.6032	Error@1 60.830%	Error@5 28.800%	Accuracy@1 39.170%	Accuracy@5 71.200%	
+2022-12-27 11:26:40,815:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:26:40,819:[P:9151]:Rank[0/1] => Epoch[20]: validate end, duration: 6.33s
+2022-12-27 11:26:40,819:[P:9151]:Rank[0/1] => lr: 0.00024353024305930545
+2022-12-27 11:26:40,824:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:26:41,428:[P:9151]:Rank[0/1] => Epoch[20]: epoch end, duration : 55.35s
+2022-12-27 11:26:41,428:[P:9151]:Rank[0/1] => Epoch[21]: epoch start
+2022-12-27 11:26:41,428:[P:9151]:Rank[0/1] => Epoch[21]: train start
+2022-12-27 11:26:41,428:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:26:41,952:[P:9151]:Rank[0/1] => Epoch[21][0/97]: Time 0.521s (0.521s)	Speed 982.2 samples/s	Data 0.027s (0.027s)	Loss 4.20219 (4.20219)	Accuracy@1 20.703 (20.703)	Accuracy@5 46.680 (46.680)	
+2022-12-27 11:27:29,843:[P:9151]:Rank[0/1] => Epoch[21]: train end, duration: 48.41s
+2022-12-27 11:27:29,844:[P:9151]:Rank[0/1] => Epoch[21]: validate start
+2022-12-27 11:27:29,844:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:27:35,983:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:27:35,983:[P:9151]:Rank[0/1] => TEST:	Loss 2.4324	Error@1 57.820%	Error@5 25.310%	Accuracy@1 42.180%	Accuracy@5 74.690%	
+2022-12-27 11:27:35,984:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:27:35,989:[P:9151]:Rank[0/1] => Epoch[21]: validate end, duration: 6.15s
+2022-12-27 11:27:35,990:[P:9151]:Rank[0/1] => lr: 0.00024290569227450708
+2022-12-27 11:27:35,993:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:27:36,607:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:27:36,821:[P:9151]:Rank[0/1] => Epoch[21]: epoch end, duration : 55.39s
+2022-12-27 11:27:36,821:[P:9151]:Rank[0/1] => Epoch[22]: epoch start
+2022-12-27 11:27:36,821:[P:9151]:Rank[0/1] => Epoch[22]: train start
+2022-12-27 11:27:36,821:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:27:37,331:[P:9151]:Rank[0/1] => Epoch[22][0/97]: Time 0.508s (0.508s)	Speed 1008.8 samples/s	Data 0.027s (0.027s)	Loss 4.56989 (4.56989)	Accuracy@1 14.648 (14.648)	Accuracy@5 41.211 (41.211)	
+2022-12-27 11:28:25,293:[P:9151]:Rank[0/1] => Epoch[22]: train end, duration: 48.47s
+2022-12-27 11:28:25,294:[P:9151]:Rank[0/1] => Epoch[22]: validate start
+2022-12-27 11:28:25,295:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:28:31,585:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:28:31,585:[P:9151]:Rank[0/1] => TEST:	Loss 2.4250	Error@1 56.960%	Error@5 25.660%	Accuracy@1 43.040%	Accuracy@5 74.340%	
+2022-12-27 11:28:31,586:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:28:31,589:[P:9151]:Rank[0/1] => Epoch[22]: validate end, duration: 6.29s
+2022-12-27 11:28:31,590:[P:9151]:Rank[0/1] => lr: 0.00024225328369958412
+2022-12-27 11:28:31,594:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:28:32,213:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:28:32,435:[P:9151]:Rank[0/1] => Epoch[22]: epoch end, duration : 55.61s
+2022-12-27 11:28:32,435:[P:9151]:Rank[0/1] => Epoch[23]: epoch start
+2022-12-27 11:28:32,436:[P:9151]:Rank[0/1] => Epoch[23]: train start
+2022-12-27 11:28:32,436:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:28:32,948:[P:9151]:Rank[0/1] => Epoch[23][0/97]: Time 0.510s (0.510s)	Speed 1003.7 samples/s	Data 0.028s (0.028s)	Loss 4.36807 (4.36807)	Accuracy@1 18.945 (18.945)	Accuracy@5 43.359 (43.359)	
+2022-12-27 11:29:20,804:[P:9151]:Rank[0/1] => Epoch[23]: train end, duration: 48.37s
+2022-12-27 11:29:20,805:[P:9151]:Rank[0/1] => Epoch[23]: validate start
+2022-12-27 11:29:20,806:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:29:27,068:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:29:27,068:[P:9151]:Rank[0/1] => TEST:	Loss 2.4068	Error@1 56.960%	Error@5 25.540%	Accuracy@1 43.040%	Accuracy@5 74.460%	
+2022-12-27 11:29:27,069:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:29:27,073:[P:9151]:Rank[0/1] => Epoch[23]: validate end, duration: 6.27s
+2022-12-27 11:29:27,074:[P:9151]:Rank[0/1] => lr: 0.00024157317830659017
+2022-12-27 11:29:27,080:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:29:27,689:[P:9151]:Rank[0/1] => Epoch[23]: epoch end, duration : 55.25s
+2022-12-27 11:29:27,689:[P:9151]:Rank[0/1] => Epoch[24]: epoch start
+2022-12-27 11:29:27,689:[P:9151]:Rank[0/1] => Epoch[24]: train start
+2022-12-27 11:29:27,690:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:29:28,219:[P:9151]:Rank[0/1] => Epoch[24][0/97]: Time 0.528s (0.528s)	Speed 970.1 samples/s	Data 0.026s (0.026s)	Loss 4.24229 (4.24229)	Accuracy@1 25.391 (25.391)	Accuracy@5 50.977 (50.977)	
+2022-12-27 11:30:18,125:[P:9151]:Rank[0/1] => Epoch[24]: train end, duration: 50.44s
+2022-12-27 11:30:18,125:[P:9151]:Rank[0/1] => Epoch[24]: validate start
+2022-12-27 11:30:18,126:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:30:24,922:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:30:24,923:[P:9151]:Rank[0/1] => TEST:	Loss 2.3872	Error@1 56.720%	Error@5 24.990%	Accuracy@1 43.280%	Accuracy@5 75.010%	
+2022-12-27 11:30:24,923:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:30:24,926:[P:9151]:Rank[0/1] => Epoch[24]: validate end, duration: 6.80s
+2022-12-27 11:30:24,926:[P:9151]:Rank[0/1] => lr: 0.00024086554390135442
+2022-12-27 11:30:24,931:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:30:25,587:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:30:25,874:[P:9151]:Rank[0/1] => Epoch[24]: epoch end, duration : 58.18s
+2022-12-27 11:30:25,874:[P:9151]:Rank[0/1] => Epoch[25]: epoch start
+2022-12-27 11:30:25,874:[P:9151]:Rank[0/1] => Epoch[25]: train start
+2022-12-27 11:30:25,874:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:30:26,411:[P:9151]:Rank[0/1] => Epoch[25][0/97]: Time 0.535s (0.535s)	Speed 957.2 samples/s	Data 0.028s (0.028s)	Loss 4.09296 (4.09296)	Accuracy@1 23.242 (23.242)	Accuracy@5 51.367 (51.367)	
+2022-12-27 11:31:14,626:[P:9151]:Rank[0/1] => Epoch[25]: train end, duration: 48.75s
+2022-12-27 11:31:14,627:[P:9151]:Rank[0/1] => Epoch[25]: validate start
+2022-12-27 11:31:14,627:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:31:20,977:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:31:20,978:[P:9151]:Rank[0/1] => TEST:	Loss 2.3170	Error@1 55.270%	Error@5 23.860%	Accuracy@1 44.730%	Accuracy@5 76.140%	
+2022-12-27 11:31:20,979:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:31:20,982:[P:9151]:Rank[0/1] => Epoch[25]: validate end, duration: 6.35s
+2022-12-27 11:31:20,982:[P:9151]:Rank[0/1] => lr: 0.00024013055508207773
+2022-12-27 11:31:20,987:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:31:21,625:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:31:22,366:[P:9151]:Rank[0/1] => Epoch[25]: epoch end, duration : 56.49s
+2022-12-27 11:31:22,366:[P:9151]:Rank[0/1] => Epoch[26]: epoch start
+2022-12-27 11:31:22,366:[P:9151]:Rank[0/1] => Epoch[26]: train start
+2022-12-27 11:31:22,367:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:31:22,880:[P:9151]:Rank[0/1] => Epoch[26][0/97]: Time 0.512s (0.512s)	Speed 1000.8 samples/s	Data 0.028s (0.028s)	Loss 3.87726 (3.87726)	Accuracy@1 28.125 (28.125)	Accuracy@5 55.273 (55.273)	
+2022-12-27 11:32:10,837:[P:9151]:Rank[0/1] => Epoch[26]: train end, duration: 48.47s
+2022-12-27 11:32:10,838:[P:9151]:Rank[0/1] => Epoch[26]: validate start
+2022-12-27 11:32:10,838:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:32:17,108:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:32:17,108:[P:9151]:Rank[0/1] => TEST:	Loss 2.3079	Error@1 55.350%	Error@5 23.150%	Accuracy@1 44.650%	Accuracy@5 76.850%	
+2022-12-27 11:32:17,109:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:32:17,112:[P:9151]:Rank[0/1] => Epoch[26]: validate end, duration: 6.27s
+2022-12-27 11:32:17,113:[P:9151]:Rank[0/1] => lr: 0.00023936839319625342
+2022-12-27 11:32:17,117:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:32:17,788:[P:9151]:Rank[0/1] => Epoch[26]: epoch end, duration : 55.42s
+2022-12-27 11:32:17,788:[P:9151]:Rank[0/1] => Epoch[27]: epoch start
+2022-12-27 11:32:17,788:[P:9151]:Rank[0/1] => Epoch[27]: train start
+2022-12-27 11:32:17,788:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:32:18,315:[P:9151]:Rank[0/1] => Epoch[27][0/97]: Time 0.525s (0.525s)	Speed 975.9 samples/s	Data 0.027s (0.027s)	Loss 3.96645 (3.96645)	Accuracy@1 25.195 (25.195)	Accuracy@5 49.414 (49.414)	
+2022-12-27 11:33:06,277:[P:9151]:Rank[0/1] => Epoch[27]: train end, duration: 48.49s
+2022-12-27 11:33:06,278:[P:9151]:Rank[0/1] => Epoch[27]: validate start
+2022-12-27 11:33:06,279:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:33:12,471:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:33:12,472:[P:9151]:Rank[0/1] => TEST:	Loss 2.2915	Error@1 54.420%	Error@5 22.880%	Accuracy@1 45.580%	Accuracy@5 77.120%	
+2022-12-27 11:33:12,472:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:33:12,477:[P:9151]:Rank[0/1] => Epoch[27]: validate end, duration: 6.20s
+2022-12-27 11:33:12,478:[P:9151]:Rank[0/1] => lr: 0.00023857924629592234
+2022-12-27 11:33:12,482:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:33:13,118:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:33:13,343:[P:9151]:Rank[0/1] => Epoch[27]: epoch end, duration : 55.55s
+2022-12-27 11:33:13,343:[P:9151]:Rank[0/1] => Epoch[28]: epoch start
+2022-12-27 11:33:13,343:[P:9151]:Rank[0/1] => Epoch[28]: train start
+2022-12-27 11:33:13,343:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:33:13,857:[P:9151]:Rank[0/1] => Epoch[28][0/97]: Time 0.511s (0.511s)	Speed 1001.8 samples/s	Data 0.030s (0.030s)	Loss 4.57699 (4.57699)	Accuracy@1 11.328 (11.328)	Accuracy@5 26.562 (26.562)	
+2022-12-27 11:34:01,818:[P:9151]:Rank[0/1] => Epoch[28]: train end, duration: 48.47s
+2022-12-27 11:34:01,819:[P:9151]:Rank[0/1] => Epoch[28]: validate start
+2022-12-27 11:34:01,820:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:34:08,076:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:34:08,076:[P:9151]:Rank[0/1] => TEST:	Loss 2.2494	Error@1 52.930%	Error@5 22.700%	Accuracy@1 47.070%	Accuracy@5 77.300%	
+2022-12-27 11:34:08,077:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:34:08,079:[P:9151]:Rank[0/1] => Epoch[28]: validate end, duration: 6.26s
+2022-12-27 11:34:08,080:[P:9151]:Rank[0/1] => lr: 0.00023776330909127386
+2022-12-27 11:34:08,084:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:34:08,712:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:34:08,934:[P:9151]:Rank[0/1] => Epoch[28]: epoch end, duration : 55.59s
+2022-12-27 11:34:08,934:[P:9151]:Rank[0/1] => Epoch[29]: epoch start
+2022-12-27 11:34:08,935:[P:9151]:Rank[0/1] => Epoch[29]: train start
+2022-12-27 11:34:08,935:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:34:09,467:[P:9151]:Rank[0/1] => Epoch[29][0/97]: Time 0.530s (0.530s)	Speed 965.5 samples/s	Data 0.034s (0.034s)	Loss 4.14372 (4.14372)	Accuracy@1 27.539 (27.539)	Accuracy@5 50.391 (50.391)	
+2022-12-27 11:34:57,416:[P:9151]:Rank[0/1] => Epoch[29]: train end, duration: 48.48s
+2022-12-27 11:34:57,417:[P:9151]:Rank[0/1] => Epoch[29]: validate start
+2022-12-27 11:34:57,417:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:35:03,649:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:35:03,650:[P:9151]:Rank[0/1] => TEST:	Loss 2.1735	Error@1 52.620%	Error@5 22.330%	Accuracy@1 47.380%	Accuracy@5 77.670%	
+2022-12-27 11:35:03,651:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:35:03,656:[P:9151]:Rank[0/1] => Epoch[29]: validate end, duration: 6.24s
+2022-12-27 11:35:03,657:[P:9151]:Rank[0/1] => lr: 0.00023692078290260413
+2022-12-27 11:35:03,663:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:35:04,320:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:35:04,545:[P:9151]:Rank[0/1] => Epoch[29]: epoch end, duration : 55.61s
+2022-12-27 11:35:04,545:[P:9151]:Rank[0/1] => Epoch[30]: epoch start
+2022-12-27 11:35:04,545:[P:9151]:Rank[0/1] => Epoch[30]: train start
+2022-12-27 11:35:04,545:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:35:05,056:[P:9151]:Rank[0/1] => Epoch[30][0/97]: Time 0.509s (0.509s)	Speed 1006.2 samples/s	Data 0.028s (0.028s)	Loss 3.52520 (3.52520)	Accuracy@1 36.523 (36.523)	Accuracy@5 65.039 (65.039)	
+2022-12-27 11:35:52,978:[P:9151]:Rank[0/1] => Epoch[30]: train end, duration: 48.43s
+2022-12-27 11:35:52,979:[P:9151]:Rank[0/1] => Epoch[30]: validate start
+2022-12-27 11:35:52,980:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:35:59,118:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:35:59,119:[P:9151]:Rank[0/1] => TEST:	Loss 2.2076	Error@1 52.840%	Error@5 21.960%	Accuracy@1 47.160%	Accuracy@5 78.040%	
+2022-12-27 11:35:59,120:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:35:59,124:[P:9151]:Rank[0/1] => Epoch[30]: validate end, duration: 6.14s
+2022-12-27 11:35:59,124:[P:9151]:Rank[0/1] => lr: 0.00023605187561064324
+2022-12-27 11:35:59,130:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:35:59,760:[P:9151]:Rank[0/1] => Epoch[30]: epoch end, duration : 55.22s
+2022-12-27 11:35:59,760:[P:9151]:Rank[0/1] => Epoch[31]: epoch start
+2022-12-27 11:35:59,761:[P:9151]:Rank[0/1] => Epoch[31]: train start
+2022-12-27 11:35:59,761:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:36:00,273:[P:9151]:Rank[0/1] => Epoch[31][0/97]: Time 0.510s (0.510s)	Speed 1004.1 samples/s	Data 0.027s (0.027s)	Loss 3.72474 (3.72474)	Accuracy@1 30.469 (30.469)	Accuracy@5 61.719 (61.719)	
+2022-12-27 11:36:48,099:[P:9151]:Rank[0/1] => Epoch[31]: train end, duration: 48.34s
+2022-12-27 11:36:48,100:[P:9151]:Rank[0/1] => Epoch[31]: validate start
+2022-12-27 11:36:48,100:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:36:54,256:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:36:54,257:[P:9151]:Rank[0/1] => TEST:	Loss 2.1630	Error@1 51.290%	Error@5 21.290%	Accuracy@1 48.710%	Accuracy@5 78.710%	
+2022-12-27 11:36:54,258:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:36:54,263:[P:9151]:Rank[0/1] => Epoch[31]: validate end, duration: 6.16s
+2022-12-27 11:36:54,264:[P:9151]:Rank[0/1] => lr: 0.00023515680160526362
+2022-12-27 11:36:54,270:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:36:54,881:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:36:55,094:[P:9151]:Rank[0/1] => Epoch[31]: epoch end, duration : 55.33s
+2022-12-27 11:36:55,094:[P:9151]:Rank[0/1] => Epoch[32]: epoch start
+2022-12-27 11:36:55,094:[P:9151]:Rank[0/1] => Epoch[32]: train start
+2022-12-27 11:36:55,094:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:36:55,603:[P:9151]:Rank[0/1] => Epoch[32][0/97]: Time 0.507s (0.507s)	Speed 1010.6 samples/s	Data 0.028s (0.028s)	Loss 4.53762 (4.53762)	Accuracy@1 12.891 (12.891)	Accuracy@5 32.617 (32.617)	
+2022-12-27 11:37:43,582:[P:9151]:Rank[0/1] => Epoch[32]: train end, duration: 48.49s
+2022-12-27 11:37:43,583:[P:9151]:Rank[0/1] => Epoch[32]: validate start
+2022-12-27 11:37:43,584:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:37:49,835:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:37:49,835:[P:9151]:Rank[0/1] => TEST:	Loss 2.1899	Error@1 51.980%	Error@5 21.500%	Accuracy@1 48.020%	Accuracy@5 78.500%	
+2022-12-27 11:37:49,836:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:37:49,840:[P:9151]:Rank[0/1] => Epoch[32]: validate end, duration: 6.26s
+2022-12-27 11:37:49,840:[P:9151]:Rank[0/1] => lr: 0.00023423578173258297
+2022-12-27 11:37:49,846:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:37:50,477:[P:9151]:Rank[0/1] => Epoch[32]: epoch end, duration : 55.38s
+2022-12-27 11:37:50,478:[P:9151]:Rank[0/1] => Epoch[33]: epoch start
+2022-12-27 11:37:50,478:[P:9151]:Rank[0/1] => Epoch[33]: train start
+2022-12-27 11:37:50,478:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:37:50,985:[P:9151]:Rank[0/1] => Epoch[33][0/97]: Time 0.505s (0.505s)	Speed 1013.7 samples/s	Data 0.023s (0.023s)	Loss 4.42841 (4.42841)	Accuracy@1 17.188 (17.188)	Accuracy@5 41.992 (41.992)	
+2022-12-27 11:38:38,994:[P:9151]:Rank[0/1] => Epoch[33]: train end, duration: 48.52s
+2022-12-27 11:38:38,995:[P:9151]:Rank[0/1] => Epoch[33]: validate start
+2022-12-27 11:38:38,995:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:38:45,253:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:38:45,253:[P:9151]:Rank[0/1] => TEST:	Loss 2.1111	Error@1 50.620%	Error@5 20.610%	Accuracy@1 49.380%	Accuracy@5 79.390%	
+2022-12-27 11:38:45,254:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:38:45,258:[P:9151]:Rank[0/1] => Epoch[33]: validate end, duration: 6.26s
+2022-12-27 11:38:45,258:[P:9151]:Rank[0/1] => lr: 0.00023328904324047324
+2022-12-27 11:38:45,264:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:38:45,880:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:38:46,097:[P:9151]:Rank[0/1] => Epoch[33]: epoch end, duration : 55.62s
+2022-12-27 11:38:46,097:[P:9151]:Rank[0/1] => Epoch[34]: epoch start
+2022-12-27 11:38:46,097:[P:9151]:Rank[0/1] => Epoch[34]: train start
+2022-12-27 11:38:46,098:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:38:46,606:[P:9151]:Rank[0/1] => Epoch[34][0/97]: Time 0.507s (0.507s)	Speed 1010.3 samples/s	Data 0.024s (0.024s)	Loss 4.40109 (4.40109)	Accuracy@1 20.508 (20.508)	Accuracy@5 44.531 (44.531)	
+2022-12-27 11:39:34,461:[P:9151]:Rank[0/1] => Epoch[34]: train end, duration: 48.36s
+2022-12-27 11:39:34,462:[P:9151]:Rank[0/1] => Epoch[34]: validate start
+2022-12-27 11:39:34,462:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:39:40,830:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:39:40,831:[P:9151]:Rank[0/1] => TEST:	Loss 2.1471	Error@1 50.560%	Error@5 20.790%	Accuracy@1 49.440%	Accuracy@5 79.210%	
+2022-12-27 11:39:40,832:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:39:40,836:[P:9151]:Rank[0/1] => Epoch[34]: validate end, duration: 6.37s
+2022-12-27 11:39:40,836:[P:9151]:Rank[0/1] => lr: 0.00023231681972249107
+2022-12-27 11:39:40,841:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:39:41,456:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:39:41,742:[P:9151]:Rank[0/1] => Epoch[34]: epoch end, duration : 55.64s
+2022-12-27 11:39:41,742:[P:9151]:Rank[0/1] => Epoch[35]: epoch start
+2022-12-27 11:39:41,742:[P:9151]:Rank[0/1] => Epoch[35]: train start
+2022-12-27 11:39:41,743:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:39:42,253:[P:9151]:Rank[0/1] => Epoch[35][0/97]: Time 0.508s (0.508s)	Speed 1008.2 samples/s	Data 0.025s (0.025s)	Loss 4.34088 (4.34088)	Accuracy@1 19.141 (19.141)	Accuracy@5 45.703 (45.703)	
+2022-12-27 11:40:30,005:[P:9151]:Rank[0/1] => Epoch[35]: train end, duration: 48.26s
+2022-12-27 11:40:30,006:[P:9151]:Rank[0/1] => Epoch[35]: validate start
+2022-12-27 11:40:30,007:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:40:36,387:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:40:36,388:[P:9151]:Rank[0/1] => TEST:	Loss 2.0617	Error@1 49.380%	Error@5 19.620%	Accuracy@1 50.620%	Accuracy@5 80.380%	
+2022-12-27 11:40:36,388:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:40:36,392:[P:9151]:Rank[0/1] => Epoch[35]: validate end, duration: 6.39s
+2022-12-27 11:40:36,392:[P:9151]:Rank[0/1] => lr: 0.00023131935106024182
+2022-12-27 11:40:36,397:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:40:37,029:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:40:37,251:[P:9151]:Rank[0/1] => Epoch[35]: epoch end, duration : 55.51s
+2022-12-27 11:40:37,252:[P:9151]:Rank[0/1] => Epoch[36]: epoch start
+2022-12-27 11:40:37,252:[P:9151]:Rank[0/1] => Epoch[36]: train start
+2022-12-27 11:40:37,252:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:40:37,760:[P:9151]:Rank[0/1] => Epoch[36][0/97]: Time 0.506s (0.506s)	Speed 1011.2 samples/s	Data 0.026s (0.026s)	Loss 3.47128 (3.47128)	Accuracy@1 36.719 (36.719)	Accuracy@5 64.648 (64.648)	
+2022-12-27 11:41:25,574:[P:9151]:Rank[0/1] => Epoch[36]: train end, duration: 48.32s
+2022-12-27 11:41:25,574:[P:9151]:Rank[0/1] => Epoch[36]: validate start
+2022-12-27 11:41:25,575:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:41:32,024:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:41:32,025:[P:9151]:Rank[0/1] => TEST:	Loss 2.0259	Error@1 49.080%	Error@5 19.050%	Accuracy@1 50.920%	Accuracy@5 80.950%	
+2022-12-27 11:41:32,026:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:41:32,031:[P:9151]:Rank[0/1] => Epoch[36]: validate end, duration: 6.46s
+2022-12-27 11:41:32,031:[P:9151]:Rank[0/1] => lr: 0.00023029688336419246
+2022-12-27 11:41:32,034:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:41:32,679:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:41:32,901:[P:9151]:Rank[0/1] => Epoch[36]: epoch end, duration : 55.65s
+2022-12-27 11:41:32,901:[P:9151]:Rank[0/1] => Epoch[37]: epoch start
+2022-12-27 11:41:32,901:[P:9151]:Rank[0/1] => Epoch[37]: train start
+2022-12-27 11:41:32,901:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:41:33,415:[P:9151]:Rank[0/1] => Epoch[37][0/97]: Time 0.511s (0.511s)	Speed 1001.5 samples/s	Data 0.026s (0.026s)	Loss 3.96842 (3.96842)	Accuracy@1 28.711 (28.711)	Accuracy@5 54.688 (54.688)	
+2022-12-27 11:42:21,439:[P:9151]:Rank[0/1] => Epoch[37]: train end, duration: 48.54s
+2022-12-27 11:42:21,440:[P:9151]:Rank[0/1] => Epoch[37]: validate start
+2022-12-27 11:42:21,440:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:42:27,828:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:42:27,828:[P:9151]:Rank[0/1] => TEST:	Loss 2.0328	Error@1 48.730%	Error@5 18.910%	Accuracy@1 51.270%	Accuracy@5 81.090%	
+2022-12-27 11:42:27,829:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:42:27,832:[P:9151]:Rank[0/1] => Epoch[37]: validate end, duration: 6.39s
+2022-12-27 11:42:27,833:[P:9151]:Rank[0/1] => lr: 0.0002292496689129474
+2022-12-27 11:42:27,838:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:42:28,458:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:42:28,675:[P:9151]:Rank[0/1] => Epoch[37]: epoch end, duration : 55.77s
+2022-12-27 11:42:28,675:[P:9151]:Rank[0/1] => Epoch[38]: epoch start
+2022-12-27 11:42:28,675:[P:9151]:Rank[0/1] => Epoch[38]: train start
+2022-12-27 11:42:28,675:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:42:29,184:[P:9151]:Rank[0/1] => Epoch[38][0/97]: Time 0.507s (0.507s)	Speed 1010.1 samples/s	Data 0.024s (0.024s)	Loss 4.09851 (4.09851)	Accuracy@1 28.125 (28.125)	Accuracy@5 53.711 (53.711)	
+2022-12-27 11:43:17,121:[P:9151]:Rank[0/1] => Epoch[38]: train end, duration: 48.45s
+2022-12-27 11:43:17,122:[P:9151]:Rank[0/1] => Epoch[38]: validate start
+2022-12-27 11:43:17,123:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:43:23,279:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:43:23,280:[P:9151]:Rank[0/1] => TEST:	Loss 1.9748	Error@1 47.830%	Error@5 18.180%	Accuracy@1 52.170%	Accuracy@5 81.820%	
+2022-12-27 11:43:23,281:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:43:23,285:[P:9151]:Rank[0/1] => Epoch[38]: validate end, duration: 6.16s
+2022-12-27 11:43:23,286:[P:9151]:Rank[0/1] => lr: 0.0002281779660910028
+2022-12-27 11:43:23,292:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:43:23,911:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:43:24,126:[P:9151]:Rank[0/1] => Epoch[38]: epoch end, duration : 55.45s
+2022-12-27 11:43:24,126:[P:9151]:Rank[0/1] => Epoch[39]: epoch start
+2022-12-27 11:43:24,126:[P:9151]:Rank[0/1] => Epoch[39]: train start
+2022-12-27 11:43:24,127:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:43:24,634:[P:9151]:Rank[0/1] => Epoch[39][0/97]: Time 0.506s (0.506s)	Speed 1012.6 samples/s	Data 0.023s (0.023s)	Loss 3.80966 (3.80966)	Accuracy@1 34.180 (34.180)	Accuracy@5 62.891 (62.891)	
+2022-12-27 11:44:12,616:[P:9151]:Rank[0/1] => Epoch[39]: train end, duration: 48.49s
+2022-12-27 11:44:12,617:[P:9151]:Rank[0/1] => Epoch[39]: validate start
+2022-12-27 11:44:12,617:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:44:19,046:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:44:19,046:[P:9151]:Rank[0/1] => TEST:	Loss 1.9969	Error@1 47.970%	Error@5 18.810%	Accuracy@1 52.030%	Accuracy@5 81.190%	
+2022-12-27 11:44:19,047:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:44:19,050:[P:9151]:Rank[0/1] => Epoch[39]: validate end, duration: 6.43s
+2022-12-27 11:44:19,050:[P:9151]:Rank[0/1] => lr: 0.0002270820393249937
+2022-12-27 11:44:19,055:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:44:19,702:[P:9151]:Rank[0/1] => Epoch[39]: epoch end, duration : 55.58s
+2022-12-27 11:44:19,702:[P:9151]:Rank[0/1] => Epoch[40]: epoch start
+2022-12-27 11:44:19,703:[P:9151]:Rank[0/1] => Epoch[40]: train start
+2022-12-27 11:44:19,703:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:44:20,213:[P:9151]:Rank[0/1] => Epoch[40][0/97]: Time 0.508s (0.508s)	Speed 1007.7 samples/s	Data 0.023s (0.023s)	Loss 3.46519 (3.46519)	Accuracy@1 32.617 (32.617)	Accuracy@5 63.281 (63.281)	
+2022-12-27 11:45:10,053:[P:9151]:Rank[0/1] => Epoch[40]: train end, duration: 50.35s
+2022-12-27 11:45:10,054:[P:9151]:Rank[0/1] => Epoch[40]: validate start
+2022-12-27 11:45:10,055:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:45:16,816:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:45:16,817:[P:9151]:Rank[0/1] => TEST:	Loss 1.9405	Error@1 46.170%	Error@5 17.620%	Accuracy@1 53.830%	Accuracy@5 82.380%	
+2022-12-27 11:45:16,818:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:45:16,822:[P:9151]:Rank[0/1] => Epoch[40]: validate end, duration: 6.77s
+2022-12-27 11:45:16,823:[P:9151]:Rank[0/1] => lr: 0.00022596215901845088
+2022-12-27 11:45:16,827:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:45:17,487:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:45:17,719:[P:9151]:Rank[0/1] => Epoch[40]: epoch end, duration : 58.02s
+2022-12-27 11:45:17,719:[P:9151]:Rank[0/1] => Epoch[41]: epoch start
+2022-12-27 11:45:17,719:[P:9151]:Rank[0/1] => Epoch[41]: train start
+2022-12-27 11:45:17,719:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:45:18,240:[P:9151]:Rank[0/1] => Epoch[41][0/97]: Time 0.519s (0.519s)	Speed 986.1 samples/s	Data 0.025s (0.025s)	Loss 3.64918 (3.64918)	Accuracy@1 34.961 (34.961)	Accuracy@5 64.648 (64.648)	
+2022-12-27 11:46:06,313:[P:9151]:Rank[0/1] => Epoch[41]: train end, duration: 48.59s
+2022-12-27 11:46:06,313:[P:9151]:Rank[0/1] => Epoch[41]: validate start
+2022-12-27 11:46:06,314:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:46:12,646:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:46:12,647:[P:9151]:Rank[0/1] => TEST:	Loss 1.9556	Error@1 46.380%	Error@5 17.850%	Accuracy@1 53.620%	Accuracy@5 82.150%	
+2022-12-27 11:46:12,647:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:46:12,651:[P:9151]:Rank[0/1] => Epoch[41]: validate end, duration: 6.34s
+2022-12-27 11:46:12,651:[P:9151]:Rank[0/1] => lr: 0.00022481860148508282
+2022-12-27 11:46:12,656:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:46:13,259:[P:9151]:Rank[0/1] => Epoch[41]: epoch end, duration : 55.54s
+2022-12-27 11:46:13,259:[P:9151]:Rank[0/1] => Epoch[42]: epoch start
+2022-12-27 11:46:13,259:[P:9151]:Rank[0/1] => Epoch[42]: train start
+2022-12-27 11:46:13,260:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:46:13,764:[P:9151]:Rank[0/1] => Epoch[42][0/97]: Time 0.502s (0.502s)	Speed 1019.0 samples/s	Data 0.022s (0.022s)	Loss 4.02013 (4.02013)	Accuracy@1 33.398 (33.398)	Accuracy@5 58.594 (58.594)	
+2022-12-27 11:47:01,603:[P:9151]:Rank[0/1] => Epoch[42]: train end, duration: 48.34s
+2022-12-27 11:47:01,604:[P:9151]:Rank[0/1] => Epoch[42]: validate start
+2022-12-27 11:47:01,604:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:47:07,982:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:47:07,982:[P:9151]:Rank[0/1] => TEST:	Loss 1.9044	Error@1 46.440%	Error@5 17.540%	Accuracy@1 53.560%	Accuracy@5 82.460%	
+2022-12-27 11:47:07,983:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:47:07,988:[P:9151]:Rank[0/1] => Epoch[42]: validate end, duration: 6.38s
+2022-12-27 11:47:07,989:[P:9151]:Rank[0/1] => lr: 0.00022365164888059957
+2022-12-27 11:47:07,993:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:47:08,597:[P:9151]:Rank[0/1] => Epoch[42]: epoch end, duration : 55.34s
+2022-12-27 11:47:08,597:[P:9151]:Rank[0/1] => Epoch[43]: epoch start
+2022-12-27 11:47:08,597:[P:9151]:Rank[0/1] => Epoch[43]: train start
+2022-12-27 11:47:08,597:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:47:09,104:[P:9151]:Rank[0/1] => Epoch[43][0/97]: Time 0.505s (0.505s)	Speed 1014.7 samples/s	Data 0.024s (0.024s)	Loss 4.28738 (4.28738)	Accuracy@1 23.828 (23.828)	Accuracy@5 51.367 (51.367)	
+2022-12-27 11:47:57,012:[P:9151]:Rank[0/1] => Epoch[43]: train end, duration: 48.41s
+2022-12-27 11:47:57,013:[P:9151]:Rank[0/1] => Epoch[43]: validate start
+2022-12-27 11:47:57,013:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:48:03,384:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:48:03,384:[P:9151]:Rank[0/1] => TEST:	Loss 1.8897	Error@1 45.660%	Error@5 16.950%	Accuracy@1 54.340%	Accuracy@5 83.050%	
+2022-12-27 11:48:03,385:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:48:03,389:[P:9151]:Rank[0/1] => Epoch[43]: validate end, duration: 6.38s
+2022-12-27 11:48:03,389:[P:9151]:Rank[0/1] => lr: 0.0002224615891330947
+2022-12-27 11:48:03,395:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:48:04,031:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:48:04,250:[P:9151]:Rank[0/1] => Epoch[43]: epoch end, duration : 55.65s
+2022-12-27 11:48:04,250:[P:9151]:Rank[0/1] => Epoch[44]: epoch start
+2022-12-27 11:48:04,250:[P:9151]:Rank[0/1] => Epoch[44]: train start
+2022-12-27 11:48:04,251:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:48:04,758:[P:9151]:Rank[0/1] => Epoch[44][0/97]: Time 0.506s (0.506s)	Speed 1012.2 samples/s	Data 0.024s (0.024s)	Loss 4.26045 (4.26045)	Accuracy@1 24.609 (24.609)	Accuracy@5 53.711 (53.711)	
+2022-12-27 11:48:52,650:[P:9151]:Rank[0/1] => Epoch[44]: train end, duration: 48.40s
+2022-12-27 11:48:52,651:[P:9151]:Rank[0/1] => Epoch[44]: validate start
+2022-12-27 11:48:52,651:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:48:58,891:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:48:58,892:[P:9151]:Rank[0/1] => TEST:	Loss 1.8660	Error@1 45.220%	Error@5 16.980%	Accuracy@1 54.780%	Accuracy@5 83.020%	
+2022-12-27 11:48:58,892:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:48:58,896:[P:9151]:Rank[0/1] => Epoch[44]: validate end, duration: 6.24s
+2022-12-27 11:48:58,897:[P:9151]:Rank[0/1] => lr: 0.00022124871587200372
+2022-12-27 11:48:58,902:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:48:59,519:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:48:59,733:[P:9151]:Rank[0/1] => Epoch[44]: epoch end, duration : 55.48s
+2022-12-27 11:48:59,733:[P:9151]:Rank[0/1] => Epoch[45]: epoch start
+2022-12-27 11:48:59,733:[P:9151]:Rank[0/1] => Epoch[45]: train start
+2022-12-27 11:48:59,733:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:49:00,238:[P:9151]:Rank[0/1] => Epoch[45][0/97]: Time 0.503s (0.503s)	Speed 1017.9 samples/s	Data 0.023s (0.023s)	Loss 3.32529 (3.32529)	Accuracy@1 37.500 (37.500)	Accuracy@5 68.359 (68.359)	
+2022-12-27 11:49:48,164:[P:9151]:Rank[0/1] => Epoch[45]: train end, duration: 48.43s
+2022-12-27 11:49:48,165:[P:9151]:Rank[0/1] => Epoch[45]: validate start
+2022-12-27 11:49:48,166:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:49:54,510:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:49:54,510:[P:9151]:Rank[0/1] => TEST:	Loss 1.9147	Error@1 45.020%	Error@5 17.260%	Accuracy@1 54.980%	Accuracy@5 82.740%	
+2022-12-27 11:49:54,511:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:49:54,514:[P:9151]:Rank[0/1] => Epoch[45]: validate end, duration: 6.35s
+2022-12-27 11:49:54,515:[P:9151]:Rank[0/1] => lr: 0.00022001332835565516
+2022-12-27 11:49:54,520:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:49:55,143:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:49:55,358:[P:9151]:Rank[0/1] => Epoch[45]: epoch end, duration : 55.62s
+2022-12-27 11:49:55,358:[P:9151]:Rank[0/1] => Epoch[46]: epoch start
+2022-12-27 11:49:55,358:[P:9151]:Rank[0/1] => Epoch[46]: train start
+2022-12-27 11:49:55,358:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:49:55,884:[P:9151]:Rank[0/1] => Epoch[46][0/97]: Time 0.524s (0.524s)	Speed 976.6 samples/s	Data 0.033s (0.033s)	Loss 3.63355 (3.63355)	Accuracy@1 37.891 (37.891)	Accuracy@5 62.695 (62.695)	
+2022-12-27 11:50:43,816:[P:9151]:Rank[0/1] => Epoch[46]: train end, duration: 48.46s
+2022-12-27 11:50:43,817:[P:9151]:Rank[0/1] => Epoch[46]: validate start
+2022-12-27 11:50:43,817:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:50:50,061:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:50:50,062:[P:9151]:Rank[0/1] => TEST:	Loss 1.8536	Error@1 44.760%	Error@5 16.330%	Accuracy@1 55.240%	Accuracy@5 83.670%	
+2022-12-27 11:50:50,062:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:50:50,065:[P:9151]:Rank[0/1] => Epoch[46]: validate end, duration: 6.25s
+2022-12-27 11:50:50,066:[P:9151]:Rank[0/1] => lr: 0.00021875573139743315
+2022-12-27 11:50:50,071:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:50:50,694:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:50:50,908:[P:9151]:Rank[0/1] => Epoch[46]: epoch end, duration : 55.55s
+2022-12-27 11:50:50,909:[P:9151]:Rank[0/1] => Epoch[47]: epoch start
+2022-12-27 11:50:50,909:[P:9151]:Rank[0/1] => Epoch[47]: train start
+2022-12-27 11:50:50,909:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:50:51,431:[P:9151]:Rank[0/1] => Epoch[47][0/97]: Time 0.521s (0.521s)	Speed 983.3 samples/s	Data 0.028s (0.028s)	Loss 4.29178 (4.29178)	Accuracy@1 23.828 (23.828)	Accuracy@5 50.000 (50.000)	
+2022-12-27 11:51:39,414:[P:9151]:Rank[0/1] => Epoch[47]: train end, duration: 48.51s
+2022-12-27 11:51:39,414:[P:9151]:Rank[0/1] => Epoch[47]: validate start
+2022-12-27 11:51:39,415:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:51:45,577:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:51:45,577:[P:9151]:Rank[0/1] => TEST:	Loss 1.8419	Error@1 44.420%	Error@5 16.130%	Accuracy@1 55.580%	Accuracy@5 83.870%	
+2022-12-27 11:51:45,578:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:51:45,581:[P:9151]:Rank[0/1] => Epoch[47]: validate end, duration: 6.17s
+2022-12-27 11:51:45,582:[P:9151]:Rank[0/1] => lr: 0.0002174762352905694
+2022-12-27 11:51:45,586:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:51:46,218:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:51:46,434:[P:9151]:Rank[0/1] => Epoch[47]: epoch end, duration : 55.52s
+2022-12-27 11:51:46,434:[P:9151]:Rank[0/1] => Epoch[48]: epoch start
+2022-12-27 11:51:46,434:[P:9151]:Rank[0/1] => Epoch[48]: train start
+2022-12-27 11:51:46,434:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:51:46,939:[P:9151]:Rank[0/1] => Epoch[48][0/97]: Time 0.503s (0.503s)	Speed 1018.6 samples/s	Data 0.023s (0.023s)	Loss 3.31776 (3.31776)	Accuracy@1 37.500 (37.500)	Accuracy@5 68.164 (68.164)	
+2022-12-27 11:52:34,928:[P:9151]:Rank[0/1] => Epoch[48]: train end, duration: 48.49s
+2022-12-27 11:52:34,929:[P:9151]:Rank[0/1] => Epoch[48]: validate start
+2022-12-27 11:52:34,929:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:52:41,281:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:52:41,281:[P:9151]:Rank[0/1] => TEST:	Loss 1.8147	Error@1 43.910%	Error@5 15.700%	Accuracy@1 56.090%	Accuracy@5 84.300%	
+2022-12-27 11:52:41,282:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:52:41,286:[P:9151]:Rank[0/1] => Epoch[48]: validate end, duration: 6.36s
+2022-12-27 11:52:41,287:[P:9151]:Rank[0/1] => lr: 0.00021617515573158267
+2022-12-27 11:52:41,293:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:52:41,913:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:52:42,128:[P:9151]:Rank[0/1] => Epoch[48]: epoch end, duration : 55.69s
+2022-12-27 11:52:42,128:[P:9151]:Rank[0/1] => Epoch[49]: epoch start
+2022-12-27 11:52:42,128:[P:9151]:Rank[0/1] => Epoch[49]: train start
+2022-12-27 11:52:42,128:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:52:42,639:[P:9151]:Rank[0/1] => Epoch[49][0/97]: Time 0.508s (0.508s)	Speed 1007.9 samples/s	Data 0.024s (0.024s)	Loss 3.93823 (3.93823)	Accuracy@1 34.570 (34.570)	Accuracy@5 60.742 (60.742)	
+2022-12-27 11:53:30,664:[P:9151]:Rank[0/1] => Epoch[49]: train end, duration: 48.54s
+2022-12-27 11:53:30,665:[P:9151]:Rank[0/1] => Epoch[49]: validate start
+2022-12-27 11:53:30,665:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:53:37,004:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:53:37,004:[P:9151]:Rank[0/1] => TEST:	Loss 1.8003	Error@1 43.060%	Error@5 16.020%	Accuracy@1 56.940%	Accuracy@5 83.980%	
+2022-12-27 11:53:37,005:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:53:37,008:[P:9151]:Rank[0/1] => Epoch[49]: validate end, duration: 6.34s
+2022-12-27 11:53:37,009:[P:9151]:Rank[0/1] => lr: 0.0002148528137423857
+2022-12-27 11:53:37,014:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:53:37,637:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:53:39,970:[P:9151]:Rank[0/1] => Epoch[49]: epoch end, duration : 57.84s
+2022-12-27 11:53:39,970:[P:9151]:Rank[0/1] => Epoch[50]: epoch start
+2022-12-27 11:53:39,970:[P:9151]:Rank[0/1] => Epoch[50]: train start
+2022-12-27 11:53:39,971:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:53:40,503:[P:9151]:Rank[0/1] => Epoch[50][0/97]: Time 0.530s (0.530s)	Speed 966.0 samples/s	Data 0.023s (0.023s)	Loss 3.26273 (3.26273)	Accuracy@1 36.719 (36.719)	Accuracy@5 68.164 (68.164)	
+2022-12-27 11:54:28,489:[P:9151]:Rank[0/1] => Epoch[50]: train end, duration: 48.52s
+2022-12-27 11:54:28,490:[P:9151]:Rank[0/1] => Epoch[50]: validate start
+2022-12-27 11:54:28,490:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:54:34,680:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:54:34,680:[P:9151]:Rank[0/1] => TEST:	Loss 1.7593	Error@1 42.350%	Error@5 15.380%	Accuracy@1 57.650%	Accuracy@5 84.620%	
+2022-12-27 11:54:34,681:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:54:34,684:[P:9151]:Rank[0/1] => Epoch[50]: validate end, duration: 6.19s
+2022-12-27 11:54:34,685:[P:9151]:Rank[0/1] => lr: 0.00021350953559107772
+2022-12-27 11:54:34,690:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:54:35,308:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:54:35,527:[P:9151]:Rank[0/1] => Epoch[50]: epoch end, duration : 55.56s
+2022-12-27 11:54:35,528:[P:9151]:Rank[0/1] => Epoch[51]: epoch start
+2022-12-27 11:54:35,528:[P:9151]:Rank[0/1] => Epoch[51]: train start
+2022-12-27 11:54:35,528:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:54:36,039:[P:9151]:Rank[0/1] => Epoch[51][0/97]: Time 0.509s (0.509s)	Speed 1005.2 samples/s	Data 0.024s (0.024s)	Loss 4.30424 (4.30424)	Accuracy@1 23.047 (23.047)	Accuracy@5 48.438 (48.438)	
+2022-12-27 11:55:23,932:[P:9151]:Rank[0/1] => Epoch[51]: train end, duration: 48.40s
+2022-12-27 11:55:23,932:[P:9151]:Rank[0/1] => Epoch[51]: validate start
+2022-12-27 11:55:23,933:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:55:30,281:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:55:30,282:[P:9151]:Rank[0/1] => TEST:	Loss 1.7672	Error@1 42.300%	Error@5 15.410%	Accuracy@1 57.700%	Accuracy@5 84.590%	
+2022-12-27 11:55:30,283:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:55:30,286:[P:9151]:Rank[0/1] => Epoch[51]: validate end, duration: 6.35s
+2022-12-27 11:55:30,286:[P:9151]:Rank[0/1] => lr: 0.00021214565271144266
+2022-12-27 11:55:30,291:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:55:30,952:[P:9151]:Rank[0/1] => save model to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr/model_best.pth
+2022-12-27 11:55:31,324:[P:9151]:Rank[0/1] => Epoch[51]: epoch end, duration : 55.80s
+2022-12-27 11:55:31,324:[P:9151]:Rank[0/1] => Epoch[52]: epoch start
+2022-12-27 11:55:31,324:[P:9151]:Rank[0/1] => Epoch[52]: train start
+2022-12-27 11:55:31,324:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:55:31,837:[P:9151]:Rank[0/1] => Epoch[52][0/97]: Time 0.510s (0.510s)	Speed 1003.2 samples/s	Data 0.026s (0.026s)	Loss 4.29859 (4.29859)	Accuracy@1 13.867 (13.867)	Accuracy@5 33.789 (33.789)	
+2022-12-27 11:56:19,758:[P:9151]:Rank[0/1] => Epoch[52]: train end, duration: 48.43s
+2022-12-27 11:56:19,759:[P:9151]:Rank[0/1] => Epoch[52]: validate start
+2022-12-27 11:56:19,760:[P:9151]:Rank[0/1] => switch to eval mode
+2022-12-27 11:56:26,077:[P:9151]:Rank[0/1] => synchronize...
+2022-12-27 11:56:26,078:[P:9151]:Rank[0/1] => TEST:	Loss 1.7722	Error@1 42.540%	Error@5 15.570%	Accuracy@1 57.460%	Accuracy@5 84.430%	
+2022-12-27 11:56:26,078:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:56:26,082:[P:9151]:Rank[0/1] => Epoch[52]: validate end, duration: 6.32s
+2022-12-27 11:56:26,082:[P:9151]:Rank[0/1] => lr: 0.0002107615016211728
+2022-12-27 11:56:26,087:[P:9151]:Rank[0/1] => saving checkpoint to OUTPUT/imagenet/cvt-13-224x224_cifar100_esr
+2022-12-27 11:56:26,700:[P:9151]:Rank[0/1] => Epoch[52]: epoch end, duration : 55.38s
+2022-12-27 11:56:26,816:[P:9151]:Rank[0/1] => Epoch[53]: epoch start
+2022-12-27 11:56:26,816:[P:9151]:Rank[0/1] => Epoch[53]: train start
+2022-12-27 11:56:26,816:[P:9151]:Rank[0/1] => switch to train mode
+2022-12-27 11:56:27,325:[P:9151]:Rank[0/1] => Epoch[53][0/97]: Time 0.506s (0.506s)	Speed 1012.1 samples/s	Data 0.026s (0.026s)	Loss 3.94353 (3.94353)	Accuracy@1 32.422 (32.422)	Accuracy@5 62.109 (62.109)	
+2022-12-27 11:57:15,299:[P:9151]:Rank[0/1] => Epoch[53]: train end, duration: 48.48s
+2022-12-27 11:57:15,300:[P:9151]:Rank[0/1] => Epoch[53]: validate start
+2022-12-27 11:57:15,301:[P:9151]:Rank[0/1] => switch to eval mode

@@ -56,8 +56,9 @@ def parse_args():
 
 def main():
     args = parse_args()
-
-    init_distributed(args)
+    args.distributed = False
+    args.num_gpus = 1
+    # init_distributed(args)
     setup_cudnn(config)
 
     update_config(config, args)
@@ -77,8 +78,9 @@ def main():
     model = build_model(config)
     model.to(torch.device('cuda'))
 
-    model_file = config.TEST.MODEL_FILE if config.TEST.MODEL_FILE \
-        else os.path.join(final_output_dir, 'model_best.pth')
+    # model_file = config.TEST.MODEL_FILE if config.TEST.MODEL_FILE \
+    #     else os.path.join(final_output_dir, 'model_best.pth')
+    model_file = "/root/data/ltnghia/projects/visual_communication/htluc/CvT/OUTPUT/imagenet/cvt-13-224x224/model_best.pth"
     logging.info('=> load model file: {}'.format(model_file))
     ext = model_file.split('.')[-1]
     if ext == 'pth':

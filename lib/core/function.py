@@ -50,7 +50,8 @@ def train_one_epoch(config, train_loader, model, criterion, optimizer, epoch,
                 y = y.contiguous(memory_format=torch.channels_last)
 
             outputs = model(x)
-            loss = criterion(outputs, y)
+            loss = criterion(outputs, torch.argmax(y, dim=-1))
+            # loss = criterion(outputs, y)
 
         # compute gradient and do update step
         optimizer.zero_grad()
