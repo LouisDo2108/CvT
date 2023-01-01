@@ -1,6 +1,6 @@
 # LouisDo2108 modification
 
-## TLDR
+## TL;DR
 This repository was our implementation for the HCMUS-APCS-CS412: Computer Vision course project. We investigate CvT on two small datasets: CIFAR100 and Tiny-ImageNet. The data is available [here](https://drive.google.com/drive/folders/1T-LFf7GG4OR6jcrV7TZx37ltQwE_M4UC?usp=sharing), including the super-resolution versions using Real-ESRGAN.
 
 ## Modification
