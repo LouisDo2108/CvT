@@ -16,7 +16,6 @@ We modified some code in the original CvT repository:
 | Tiny-ImageNet_ESR - SoftCE  | 66.230     | 86.250     |
 | Tiny-ImageNet - Focal       | 53.820     | 77.390     | 
 | Tiny-ImageNet_ESR - Focal   | 66.330     | 83.550     | 
-|-----------------------------|------------|------------|
 | CIFAR100 - SoftCE           | 55.820     | 83.110     |
 | CIFAR100_ESR - SoftCE       | 70.890     | 91.650     |
 | CIFAR100 - Focal            | 58.190     | 84.340     | 
