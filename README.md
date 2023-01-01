@@ -1,7 +1,7 @@
 # LouisDo2108 modification
 
 ## TLDR
-This repository was our implementation for the HCMUS-APCS-CS412: Computer Vision course's project. We investigate CvT on two small datasets: CIFAR100 and Tiny-ImageNet. The data is available [here](https://drive.google.com/drive/folders/1T-LFf7GG4OR6jcrV7TZx37ltQwE_M4UC?usp=sharing), including the super-resolution versins using Real-ESRGAN.
+This repository was our implementation for the HCMUS-APCS-CS412: Computer Vision course project. We investigate CvT on two small datasets: CIFAR100 and Tiny-ImageNet. The data is available [here](https://drive.google.com/drive/folders/1T-LFf7GG4OR6jcrV7TZx37ltQwE_M4UC?usp=sharing), including the super-resolution versions using Real-ESRGAN.
 
 ## Modification
 We modified some code in the original CvT repository:
@@ -16,7 +16,7 @@ We modified some code in the original CvT repository:
 | Tiny-ImageNet_ESR - SoftCE  | 66.230     | 86.250     |
 | Tiny-ImageNet - Focal       | 53.820     | 77.390     | 
 | Tiny-ImageNet_ESR - Focal   | 66.330     | 83.550     | 
----------------------------------------------------------
+|-------------------------------------------------------|
 | CIFAR100 - SoftCE           | 55.820     | 83.110     |
 | CIFAR100_ESR - SoftCE       | 70.890     | 91.650     |
 | CIFAR100 - Focal            | 58.190     | 84.340     | 
