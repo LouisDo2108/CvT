@@ -10,6 +10,7 @@ import torch
 import torch.utils.data
 import torchvision.datasets as datasets
 
+### Test ###
 import os
 import os.path
 from typing import Any, Callable, cast, Dict, List, Optional, Tuple, Union
@@ -313,6 +314,7 @@ class ImageFolder(DatasetFolder):
             is_valid_file=is_valid_file,
         )
         self.imgs = self.samples
+### Test ###
 
 
 def build_dataset(cfg, is_train):
@@ -346,9 +348,11 @@ def _build_imagenet_dataset(cfg, is_train):
     # dataset = datasets.ImageFolder(
     #     os.path.join(cfg.DATASET.ROOT, dataset_name), transforms
     # )
+    ### Test ###
     dataset = ImageFolder(
         os.path.join(cfg.DATASET.ROOT, dataset_name), transforms
     )
+    ### Test ###
     return dataset
 
 
